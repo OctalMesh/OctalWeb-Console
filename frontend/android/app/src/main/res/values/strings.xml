@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">OctalConsole</string>
+    <string name="title_activity_main">OctalConsole</string>
+    <string name="package_name">com.octalmesh.console</string>
+    <string name="custom_url_scheme">com.octalmesh.console</string>
+</resources>

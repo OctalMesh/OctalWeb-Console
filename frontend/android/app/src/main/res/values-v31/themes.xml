@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Start v31 -->
+
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground_animated</item>
+        <item name="android:windowSplashScreenAnimationDuration">@integer/splash_screen_animation_duration</item>
+        <item name="android:windowSplashScreenBackground">@color/ic_launcher_background</item>
+
+        <!-- End v31 -->
+    </style>
+
+</resources>
