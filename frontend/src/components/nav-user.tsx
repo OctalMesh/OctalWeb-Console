@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  CreditCard,
   EllipsisVertical,
   LogOut,
   BellDot,
@@ -32,7 +31,6 @@ export function NavUser({
   user: {
     name: string
     email: string
-    avatar: string
   }
 }) {
   const { isMobile } = useSidebar()
@@ -83,12 +81,6 @@ export function NavUser({
                 <Link to="/settings/account">
                   <CircleUser />
                   Account
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild className="cursor-pointer">
-                <Link to="/settings/billing">
-                  <CreditCard />
-                  Billing
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="cursor-pointer">

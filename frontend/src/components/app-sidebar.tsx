@@ -33,7 +33,6 @@ const data = {
   user: {
     name: "OctalMesh",
     email: "admin@octalmesh.com",
-    avatar: Logo,
   },
   navGroups: [
     {

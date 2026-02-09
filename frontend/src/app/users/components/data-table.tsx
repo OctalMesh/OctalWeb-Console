@@ -198,14 +198,6 @@ export function DataTable({ users, onDeleteUser, onEditUser, onAddUser }: DataTa
       filterFn: exactFilter,
     },
     {
-      accessorKey: "billing",
-      header: "Billing",
-      cell: ({ row }) => {
-        const billing = row.getValue("billing") as string
-        return <span className="text-sm">{billing}</span>
-      },
-    },
-    {
       accessorKey: "status",
       header: "Status",
       cell: ({ row }) => {

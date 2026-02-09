@@ -84,54 +84,6 @@
     "category": "Account"
   },
   {
-    "id": 15,
-    "question": "What payment methods do you accept?",
-    "answer": "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for enterprise customers. All payments are processed securely.",
-    "category": "Billing"
-  },
-  {
-    "id": 16,
-    "question": "How can I upgrade my plan?",
-    "answer": "You can upgrade your plan at any time from your account settings. Go to 'Plans & Billing' and select the plan that best fits your needs. Changes take effect immediately.",
-    "category": "Billing"
-  },
-  {
-    "id": 17,
-    "question": "Can I downgrade my plan?",
-    "answer": "Yes, you can downgrade your plan at any time. The change will take effect at the start of your next billing cycle to ensure you don't lose access to premium features.",
-    "category": "Billing"
-  },
-  {
-    "id": 18,
-    "question": "Do you offer refunds?",
-    "answer": "We offer a 30-day money-back guarantee for all plans. If you're not satisfied, contact our support team for a full refund within 30 days of purchase.",
-    "category": "Billing"
-  },
-  {
-    "id": 19,
-    "question": "How does billing work?",
-    "answer": "Billing is processed monthly or annually depending on your chosen plan. You'll receive an invoice before each billing cycle, and payment is automatically charged to your selected method.",
-    "category": "Billing"
-  },
-  {
-    "id": 20,
-    "question": "Can I change my billing cycle?",
-    "answer": "Yes, you can switch between monthly and annual billing at any time. Annual billing offers significant savings compared to monthly billing.",
-    "category": "Billing"
-  },
-  {
-    "id": 21,
-    "question": "What happens if payment fails?",
-    "answer": "If a payment fails, we'll attempt to charge your card again after 3 days. You'll receive email notifications, and your account will remain active during this grace period.",
-    "category": "Billing"
-  },
-  {
-    "id": 22,
-    "question": "How do I view my billing history?",
-    "answer": "You can view your complete billing history in the 'Plans & Billing' section of your account settings. All invoices and receipts are available for download.",
-    "category": "Billing"
-  },
-  {
     "id": 23,
     "question": "Can I export my data?",
     "answer": "Yes, you can export your data at any time from your account settings. We provide exports in multiple formats including CSV, JSON, and PDF for different data types.",
