@@ -103,6 +103,7 @@ $RECYCLE.BIN/
 target/
 build/
 builds/
+dist/
 .gradle
 run/
 *.war
@@ -139,12 +140,12 @@ hs_err_pid*
 *.swp
 
 # ============================================================================ #
-#                      Node / JavaScript / Next.js / Yarn                      #
+#                           Node / JavaScript / Yarn                           #
 # ============================================================================ #
 
 # Node
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -153,11 +154,7 @@ hs_err_pid*
 !.yarn/versions
 
 # Next.js
-/.next/
-/out/
-
-# Production build
-/build
+.next/
 
 # Debug logs
 npm-debug.log*
@@ -166,7 +163,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Testing
-/coverage
+coverage/
 
 # TypeScript
 *.tsbuildinfo

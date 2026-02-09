@@ -85,12 +85,12 @@ $RECYCLE.BIN/
 *.lnk
 
 # ============================================================================ #
-#                      Node / JavaScript / Next.js / Yarn                      #
+#                            Node / JavaScript / Yarn                          #
 # ============================================================================ #
 
 # Node
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -99,11 +99,11 @@ $RECYCLE.BIN/
 !.yarn/versions
 
 # Next.js
-/.next/
-/out/
+.next/
 
-# Production build
-/build
+# Build
+build/
+dist/
 
 # Debug logs
 npm-debug.log*
@@ -112,7 +112,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Testing
-/coverage
+coverage/
 
 # TypeScript
 *.tsbuildinfo
