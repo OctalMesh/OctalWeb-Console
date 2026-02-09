@@ -8,8 +8,15 @@ services:
       - "3002:3002"
     restart: unless-stopped
     networks:
-      - octal-network
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.octal-console.rule=Host(`console.octalmesh.com`)"
+      - "traefik.http.routers.octal-console.entrypoints=websecure"
+      - "traefik.http.routers.octal-console.tls=true"
+      - "traefik.http.routers.octal-console.tls.certresolver=cloudflare"
+      - "traefik.http.services.octal-console.loadbalancer.server.port=3002"
 
 networks:
-  octal-network:
-    driver: bridge
+  dokploy-network:
+    external: true
