@@ -9,6 +9,13 @@ services:
     restart: unless-stopped
     networks:
       - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.octal-console.rule=Host(`console.octalmesh.com`)"
+      - "traefik.http.routers.octal-console.entrypoints=websecure"
+      - "traefik.http.routers.octal-console.tls=true"
+      - "traefik.http.routers.octal-console.tls.certresolver=cloudflare"
+      - "traefik.http.services.octal-console.loadbalancer.server.port=3002"
 
 networks:
   dokploy-network:
