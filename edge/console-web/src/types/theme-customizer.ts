@@ -33,3 +33,8 @@ export interface RadiusOption {
   name: string
   value: string
 }
+
+export interface BrandColor {
+  name: string
+  cssVar: string
+}
