@@ -1,22 +1,15 @@
 services:
-  console-frontend:
+  console-web:
     build:
-      context: ./frontend
+      context: ../../../../edge/console-web
       dockerfile: Dockerfile
     container_name: octal-console
     ports:
       - "3002:3002"
     restart: unless-stopped
     networks:
-      - dokploy-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.octal-console.rule=Host(`console.octalmesh.com`)"
-      - "traefik.http.routers.octal-console.entrypoints=websecure"
-      - "traefik.http.routers.octal-console.tls=true"
-      - "traefik.http.routers.octal-console.tls.certresolver=cloudflare"
-      - "traefik.http.services.octal-console.loadbalancer.server.port=3002"
+      - octal-network
 
 networks:
-  dokploy-network:
-    external: true
+  octal-network:
+    driver: bridge
