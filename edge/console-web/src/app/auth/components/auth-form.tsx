@@ -23,7 +23,7 @@ export function AuthForm({
   description,
   footerText,
   showSocials = false,
-  imageSrc = "/placeholder.svg",
+  imageSrc = "/assets/placeholder.svg",
   submitButtonText,
   children,
   className,

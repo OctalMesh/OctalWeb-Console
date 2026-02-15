@@ -9,7 +9,7 @@ export function UnderMaintenanceError() {
   return (
     <div className='mx-auto flex min-h-dvh flex-col items-center justify-center gap-8 p-8 md:gap-12 md:p-16'>
       <img
-        src='/placeholder.svg'
+        src='/assets/placeholder.svg'
         alt='placeholder image'
         className='aspect-video w-240 rounded-xl object-cover dark:brightness-[0.95] dark:invert'
       />
