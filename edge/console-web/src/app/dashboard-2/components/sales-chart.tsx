@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 const salesData = [
   { month: "Jan", sales: 12500, target: 15000 },
@@ -20,7 +20,7 @@ const salesData = [
   { month: "Oct", sales: 35100, target: 30000 },
   { month: "Nov", sales: 38900, target: 35000 },
   { month: "Dec", sales: 42300, target: 35000 },
-]
+];
 
 const chartConfig = {
   sales: {
@@ -31,10 +31,10 @@ const chartConfig = {
     label: "Target",
     color: "var(--primary)",
   },
-}
+};
 
 export function SalesChart() {
-  const [timeRange, setTimeRange] = useState("12m")
+  const [timeRange, setTimeRange] = useState("12m");
 
   return (
     <Card className="cursor-pointer">
@@ -49,9 +49,15 @@ export function SalesChart() {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="3m" className="cursor-pointer">Last 3 months</SelectItem>
-              <SelectItem value="6m" className="cursor-pointer">Last 6 months</SelectItem>
-              <SelectItem value="12m" className="cursor-pointer">Last 12 months</SelectItem>
+              <SelectItem value="3m" className="cursor-pointer">
+                Last 3 months
+              </SelectItem>
+              <SelectItem value="6m" className="cursor-pointer">
+                Last 6 months
+              </SelectItem>
+              <SelectItem value="12m" className="cursor-pointer">
+                Last 12 months
+              </SelectItem>
             </SelectContent>
           </Select>
           <Button variant="outline" className="cursor-pointer">
@@ -74,14 +80,8 @@ export function SalesChart() {
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted/30" />
-              <XAxis 
-                dataKey="month" 
-                axisLine={false}
-                tickLine={false}
-                className="text-xs"
-                tick={{ fontSize: 12 }}
-              />
-              <YAxis 
+              <XAxis dataKey="month" axisLine={false} tickLine={false} className="text-xs" tick={{ fontSize: 12 }} />
+              <YAxis
                 axisLine={false}
                 tickLine={false}
                 className="text-xs"
@@ -111,5 +111,5 @@ export function SalesChart() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

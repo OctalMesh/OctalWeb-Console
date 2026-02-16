@@ -1,4 +1,4 @@
-import { lazy, Suspense, type ComponentType } from "react";
+import { type ComponentType, lazy, Suspense } from "react";
 import { Navigate, Outlet, type RouteObject, useRoutes } from "react-router-dom";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
@@ -28,6 +28,7 @@ const Unauthorized = Loadable(lazy(() => import("@/app/errors/unauthorized/page"
 const Forbidden = Loadable(lazy(() => import("@/app/errors/forbidden/page")));
 const InternalError = Loadable(lazy(() => import("@/app/errors/internal-server-error/page")));
 const Maintenance = Loadable(lazy(() => import("@/app/errors/under-maintenance/page")));
+
 // </editor-fold>
 
 /**
@@ -105,9 +106,9 @@ export function AppRoutes() {
 function Loadable(Component: ComponentType<any>) {
   function WrappedComponent(props: any) {
     return (
-        <Suspense fallback={<LoadingSpinner />}>
-          <Component {...props} />
-        </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Component {...props} />
+      </Suspense>
     );
   }
 

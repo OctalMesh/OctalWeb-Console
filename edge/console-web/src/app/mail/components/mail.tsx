@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   AlertCircle,
   Archive,
@@ -13,21 +13,21 @@ import {
   ShoppingCart,
   Trash2,
   Users2,
-} from "lucide-react"
+} from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { Input } from "@/components/ui/input"
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
-import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TooltipProvider } from "@/components/ui/tooltip"
-import { AccountSwitcher } from "@/app/mail/components/account-switcher"
-import { MailDisplay } from "@/app/mail/components/mail-display"
-import { MailList } from "@/app/mail/components/mail-list"
-import { Nav } from "@/app/mail/components/nav"
-import { type Mail } from "@/app/mail/data"
-import { useMail } from "@/app/mail/use-mail"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { AccountSwitcher } from "@/app/mail/components/account-switcher";
+import { MailDisplay } from "@/app/mail/components/mail-display";
+import { MailList } from "@/app/mail/components/mail-list";
+import { Nav } from "@/app/mail/components/nav";
+import { type Mail } from "@/app/mail/data";
+import { useMail } from "@/app/mail/use-mail";
+import { Button } from "@/components/ui/button";
 
 interface MailProps {
   accounts: {
@@ -53,10 +53,7 @@ export function Mail({
 
   return (
     <TooltipProvider delayDuration={0}>
-      <ResizablePanelGroup
-        orientation="horizontal"
-        className="h-full items-stretch rounded-lg border overflow-hidden"
-      >
+      <ResizablePanelGroup orientation="horizontal" className="h-full items-stretch rounded-lg border overflow-hidden">
         <ResizablePanel
           defaultSize={defaultLayout[0]}
           collapsedSize={navCollapsedSize}
@@ -69,18 +66,13 @@ export function Mail({
           }}
           className={cn(isCollapsed && "w-full transition-all duration-300 ease-in-out")}
         >
-          <div
-            className={cn(
-              "flex h-13 items-center justify-center",
-              isCollapsed ? "h-13" : "px-2"
-            )}
-          >
+          <div className={cn("flex h-13 items-center justify-center", isCollapsed ? "h-13" : "px-2")}>
             <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />
           </div>
           <Separator className="mx-0" />
           <div className="m-3">
             <Button className="w-full cursor-pointer">
-               {isCollapsed ? "" : "Compose"}
+              {isCollapsed ? "" : "Compose"}
               <Send className="size-4" />
             </Button>
           </div>
@@ -169,8 +161,12 @@ export function Mail({
             <div className="flex items-center px-4 py-1.5">
               <h1 className="text-foreground text-xl font-bold">Inbox</h1>
               <TabsList className="ml-auto">
-                <TabsTrigger value="all" className="cursor-pointer">All mail</TabsTrigger>
-                <TabsTrigger value="unread" className="cursor-pointer">Unread</TabsTrigger>
+                <TabsTrigger value="all" className="cursor-pointer">
+                  All mail
+                </TabsTrigger>
+                <TabsTrigger value="unread" className="cursor-pointer">
+                  Unread
+                </TabsTrigger>
               </TabsList>
             </div>
             <Separator />

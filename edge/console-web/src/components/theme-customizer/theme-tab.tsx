@@ -1,52 +1,43 @@
-"use client"
+"use client";
 
-import { Sun, Moon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Separator } from '@/components/ui/separator'
-import { useThemeManager } from '@/hooks/use-theme-manager'
-import { useCircularTransition } from '@/hooks/use-circular-transition'
-import { colorThemes } from '@/config/theme-data'
-import { radiusOptions } from '@/config/theme-customizer-constants'
-import React from 'react'
-import "./circular-transition.css"
+import { Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { useThemeManager } from "@/hooks/use-theme-manager";
+import { useCircularTransition } from "@/hooks/use-circular-transition";
+import { colorThemes } from "@/config/theme-data";
+import { radiusOptions } from "@/config/theme-customizer-constants";
+import React from "react";
+import "./circular-transition.css";
 
 interface ThemeTabProps {
-  selectedTheme: string
-  setSelectedTheme: (theme: string) => void
-  selectedRadius: string
-  setSelectedRadius: (radius: string) => void
+  selectedTheme: string;
+  setSelectedTheme: (theme: string) => void;
+  selectedRadius: string;
+  setSelectedRadius: (radius: string) => void;
 }
 
-export function ThemeTab({
-  selectedTheme,
-  setSelectedTheme,
-  selectedRadius,
-  setSelectedRadius,
-}: ThemeTabProps) {
-  const {
-    isDarkMode,
-    applyTheme,
-    applyRadius,
-  } = useThemeManager()
+export function ThemeTab({ selectedTheme, setSelectedTheme, selectedRadius, setSelectedRadius }: ThemeTabProps) {
+  const { isDarkMode, applyTheme, applyRadius } = useThemeManager();
 
-  const { toggleTheme } = useCircularTransition()
+  const { toggleTheme } = useCircularTransition();
 
   const handleRadiusSelect = (radius: string) => {
-    setSelectedRadius(radius)
-    applyRadius(radius)
-  }
+    setSelectedRadius(radius);
+    applyRadius(radius);
+  };
 
   const handleLightMode = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!isDarkMode) return
-    toggleTheme(event)
-  }
+    if (!isDarkMode) return;
+    toggleTheme(event);
+  };
 
   const handleDarkMode = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (isDarkMode) return
-    toggleTheme(event)
-  }
+    if (isDarkMode) return;
+    toggleTheme(event);
+  };
 
   return (
     <div className="p-4 space-y-6">
@@ -57,10 +48,13 @@ export function ThemeTab({
           <Label className="text-sm font-medium">Theme Presets</Label>
         </div>
 
-        <Select value={selectedTheme} onValueChange={(value) => {
-          setSelectedTheme(value)                      // Update selected theme state
-          applyTheme(value, isDarkMode) // Apply the selected theme
-        }}>
+        <Select
+          value={selectedTheme}
+          onValueChange={(value) => {
+            setSelectedTheme(value); // Update selected theme state
+            applyTheme(value, isDarkMode); // Apply the selected theme
+          }}
+        >
           <SelectTrigger className="w-full cursor-pointer">
             <SelectValue placeholder="Choose Shadcn Theme" />
           </SelectTrigger>
@@ -106,9 +100,7 @@ export function ThemeTab({
             <div
               key={option.value}
               className={`relative cursor-pointer rounded-md p-3 border transition-colors ${
-                selectedRadius === option.value
-                  ? "border-primary"
-                  : "border-border hover:border-border/60"
+                selectedRadius === option.value ? "border-primary" : "border-border hover:border-border/60"
               }`}
               onClick={() => handleRadiusSelect(option.value)}
             >
@@ -147,5 +139,5 @@ export function ThemeTab({
         </div>
       </div>
     </div>
-  )
+  );
 }

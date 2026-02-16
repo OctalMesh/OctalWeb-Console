@@ -1,45 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { CalendarIcon, Clock, MapPin, Users, Type, Tag } from "lucide-react"
-import { format } from "date-fns"
+import { useState } from "react";
+import { CalendarIcon, Clock, MapPin, Tag, Type, Users } from "lucide-react";
+import { format } from "date-fns";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue 
-} from "@/components/ui/select"
-import { 
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle 
-} from "@/components/ui/dialog"
-import { 
-  Popover,
-  PopoverContent,
-  PopoverTrigger 
-} from "@/components/ui/popover"
-import { Calendar } from "@/components/ui/calendar"
-import { Badge } from "@/components/ui/badge"
-import { Switch } from "@/components/ui/switch"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
-import { type CalendarEvent } from "../types"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
+import { type CalendarEvent } from "../types";
 
 interface EventFormProps {
-  event?: CalendarEvent | null
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  onSave: (event: Partial<CalendarEvent>) => void
-  onDelete?: (eventId: number) => void
+  event?: CalendarEvent | null;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onSave: (event: Partial<CalendarEvent>) => void;
+  onDelete?: (eventId: number) => void;
 }
 
 const eventTypes = [
@@ -47,19 +31,37 @@ const eventTypes = [
   { value: "event", label: "Event", color: "bg-green-500" },
   { value: "personal", label: "Personal", color: "bg-pink-500" },
   { value: "task", label: "Task", color: "bg-orange-500" },
-  { value: "reminder", label: "Reminder", color: "bg-purple-500" }
-]
+  { value: "reminder", label: "Reminder", color: "bg-purple-500" },
+];
 
 const timeSlots = [
-  "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-  "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM",
-  "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
-  "6:00 PM", "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM"
-]
+  "9:00 AM",
+  "9:30 AM",
+  "10:00 AM",
+  "10:30 AM",
+  "11:00 AM",
+  "11:30 AM",
+  "12:00 PM",
+  "12:30 PM",
+  "1:00 PM",
+  "1:30 PM",
+  "2:00 PM",
+  "2:30 PM",
+  "3:00 PM",
+  "3:30 PM",
+  "4:00 PM",
+  "4:30 PM",
+  "5:00 PM",
+  "5:30 PM",
+  "6:00 PM",
+  "6:30 PM",
+  "7:00 PM",
+  "7:30 PM",
+  "8:00 PM",
+  "8:30 PM",
+];
 
-const durationOptions = [
-  "15 min", "30 min", "45 min", "1 hour", "1.5 hours", "2 hours", "3 hours", "All day"
-]
+const durationOptions = ["15 min", "30 min", "45 min", "1 hour", "1.5 hours", "2 hours", "3 hours", "All day"];
 
 export function EventForm({ event, open, onOpenChange, onSave, onDelete }: EventFormProps) {
   const [formData, setFormData] = useState({
@@ -72,47 +74,47 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
     description: event?.description || "",
     attendees: event?.attendees || [],
     allDay: false,
-    reminder: true
-  })
+    reminder: true,
+  });
 
-  const [showCalendar, setShowCalendar] = useState(false)
-  const [newAttendee, setNewAttendee] = useState("")
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [newAttendee, setNewAttendee] = useState("");
 
   const handleSave = () => {
     const eventData: Partial<CalendarEvent> = {
       ...formData,
       id: event?.id,
-      color: eventTypes.find(t => t.value === formData.type)?.color || "bg-blue-500"
-    }
-    onSave(eventData)
-    onOpenChange(false)
-  }
+      color: eventTypes.find((t) => t.value === formData.type)?.color || "bg-blue-500",
+    };
+    onSave(eventData);
+    onOpenChange(false);
+  };
 
   const handleDelete = () => {
     if (event?.id && onDelete) {
-      onDelete(event.id)
-      onOpenChange(false)
+      onDelete(event.id);
+      onOpenChange(false);
     }
-  }
+  };
 
   const addAttendee = () => {
     if (newAttendee.trim() && !formData.attendees.includes(newAttendee.trim())) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        attendees: [...prev.attendees, newAttendee.trim()]
-      }))
-      setNewAttendee("")
+        attendees: [...prev.attendees, newAttendee.trim()],
+      }));
+      setNewAttendee("");
     }
-  }
+  };
 
   const removeAttendee = (attendee: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      attendees: prev.attendees.filter(a => a !== attendee)
-    }))
-  }
+      attendees: prev.attendees.filter((a) => a !== attendee),
+    }));
+  };
 
-  const selectedEventType = eventTypes.find(t => t.value === formData.type)
+  const selectedEventType = eventTypes.find((t) => t.value === formData.type);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -138,7 +140,7 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
               id="title"
               placeholder="Enter event title..."
               value={formData.title}
-              onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
               className="text-lg font-medium"
             />
           </div>
@@ -150,12 +152,20 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                 <Tag className="w-4 h-4" />
                 Event Type
               </Label>
-              <Select value={formData.type} onValueChange={(value) => setFormData(prev => ({ ...prev, type: value as CalendarEvent["type"] }))}>
+              <Select
+                value={formData.type}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    type: value as CalendarEvent["type"],
+                  }))
+                }
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {eventTypes.map(type => (
+                  {eventTypes.map((type) => (
                     <SelectItem key={type.value} value={type.value}>
                       <div className="flex items-center gap-2">
                         <div className={cn("w-3 h-3 rounded-full", type.color)} />
@@ -187,8 +197,8 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                     selected={formData.date}
                     onSelect={(date) => {
                       if (date) {
-                        setFormData(prev => ({ ...prev, date }))
-                        setShowCalendar(false)
+                        setFormData((prev) => ({ ...prev, date }));
+                        setShowCalendar(false);
                       }
                     }}
                     initialFocus
@@ -202,13 +212,18 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                 <Clock className="w-4 h-4" />
                 Time
               </Label>
-              <Select value={formData.time} onValueChange={(value) => setFormData(prev => ({ ...prev, time: value }))}>
+              <Select
+                value={formData.time}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, time: value }))}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {timeSlots.map(time => (
-                    <SelectItem key={time} value={time}>{time}</SelectItem>
+                  {timeSlots.map((time) => (
+                    <SelectItem key={time} value={time}>
+                      {time}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -219,13 +234,23 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label>Duration</Label>
-              <Select value={formData.duration} onValueChange={(value) => setFormData(prev => ({ ...prev, duration: value }))}>
+              <Select
+                value={formData.duration}
+                onValueChange={(value) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    duration: value,
+                  }))
+                }
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {durationOptions.map(duration => (
-                    <SelectItem key={duration} value={duration}>{duration}</SelectItem>
+                  {durationOptions.map((duration) => (
+                    <SelectItem key={duration} value={duration}>
+                      {duration}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -238,17 +263,21 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                   <Switch
                     id="all-day"
                     checked={formData.allDay}
-                    onCheckedChange={(checked) => setFormData(prev => ({ ...prev, allDay: checked }))}
+                    onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, allDay: checked }))}
                   />
-                  <Label htmlFor="all-day" className="text-sm">All day</Label>
+                  <Label htmlFor="all-day" className="text-sm">
+                    All day
+                  </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Switch
                     id="reminder"
                     checked={formData.reminder}
-                    onCheckedChange={(checked) => setFormData(prev => ({ ...prev, reminder: checked }))}
+                    onCheckedChange={(checked) => setFormData((prev) => ({ ...prev, reminder: checked }))}
                   />
-                  <Label htmlFor="reminder" className="text-sm">Reminder</Label>
+                  <Label htmlFor="reminder" className="text-sm">
+                    Reminder
+                  </Label>
                 </div>
               </div>
             </div>
@@ -264,7 +293,7 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
               id="location"
               placeholder="Add location..."
               value={formData.location}
-              onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, location: e.target.value }))}
             />
           </div>
 
@@ -281,7 +310,9 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                 onChange={(e) => setNewAttendee(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && addAttendee()}
               />
-              <Button onClick={addAttendee} variant="outline" className="cursor-pointer">Add</Button>
+              <Button onClick={addAttendee} variant="outline" className="cursor-pointer">
+                Add
+              </Button>
             </div>
             {formData.attendees.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-2">
@@ -289,7 +320,12 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
                   <Badge key={index} variant="secondary" className="flex items-center gap-2 px-2 py-1">
                     <Avatar className="w-5 h-5">
                       <AvatarFallback className="text-[10px] font-medium">
-                        {attendee.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                        {attendee
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .slice(0, 2)
+                          .toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
                     <span className="text-sm">{attendee}</span>
@@ -313,7 +349,7 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
               id="description"
               placeholder="Add description..."
               value={formData.description}
-              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
               rows={3}
             />
           </div>
@@ -335,5 +371,5 @@ export function EventForm({ event, open, onOpenChange, onSave, onDelete }: Event
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

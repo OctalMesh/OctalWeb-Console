@@ -1,12 +1,17 @@
-"use client"
+"use client";
 
-import { Eye, MoreHorizontal } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { assetUrl } from "@/lib/utils"
+import { Eye, MoreHorizontal } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { assetUrl } from "@/lib/utils";
 
 const transactions = [
   {
@@ -64,7 +69,7 @@ const transactions = [
     status: "completed",
     date: "3 days ago",
   },
-]
+];
 
 export function RecentTransactions() {
   return (
@@ -81,11 +86,16 @@ export function RecentTransactions() {
       </CardHeader>
       <CardContent className="space-y-4">
         {transactions.map((transaction) => (
-          <div key={transaction.id} >
+          <div key={transaction.id}>
             <div className="flex p-3 rounded-lg border gap-2">
               <Avatar className="h-8 w-8">
                 <AvatarImage src={transaction.customer.avatar} alt={transaction.customer.name} />
-                <AvatarFallback>{transaction.customer.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                <AvatarFallback>
+                  {transaction.customer.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </AvatarFallback>
               </Avatar>
               <div className="flex flex-1 items-center flex-wrap justify-between gap-1">
                 <div className="flex items-center space-x-3">
@@ -97,8 +107,11 @@ export function RecentTransactions() {
                 <div className="flex items-center space-x-3">
                   <Badge
                     variant={
-                      transaction.status === "completed" ? "default" :
-                      transaction.status === "pending" ? "secondary" : "destructive"
+                      transaction.status === "completed"
+                        ? "default"
+                        : transaction.status === "pending"
+                          ? "secondary"
+                          : "destructive"
                     }
                     className="cursor-pointer"
                   >
@@ -127,5 +140,5 @@ export function RecentTransactions() {
         ))}
       </CardContent>
     </Card>
-  )
+  );
 }

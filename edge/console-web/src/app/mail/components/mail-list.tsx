@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import type { ComponentProps } from "react"
-import { formatDistanceToNow } from "date-fns"
+import type { ComponentProps } from "react";
+import { formatDistanceToNow } from "date-fns";
 
-import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import type { Mail } from "@/app/mail/data"
-import { useMail } from "@/app/mail/use-mail"
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import type { Mail } from "@/app/mail/data";
+import { useMail } from "@/app/mail/use-mail";
 
 interface MailListProps {
   items: Mail[];
@@ -18,12 +18,13 @@ export function MailList({ items }: MailListProps) {
 
   return (
     <ScrollArea className="h-[calc(100vh-12rem)]">
-      <div className="flex flex-col gap-2 p-4 pt-0">{items.map((item) => (
+      <div className="flex flex-col gap-2 p-4 pt-0">
+        {items.map((item) => (
           <button
             key={item.id}
             className={cn(
               "hover:bg-accent hover:text-accent-foreground flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all cursor-pointer",
-              mail.selected === item.id && "bg-muted"
+              mail.selected === item.id && "bg-muted",
             )}
             onClick={() =>
               setMail({
@@ -41,7 +42,7 @@ export function MailList({ items }: MailListProps) {
                 <div
                   className={cn(
                     "ml-auto text-xs",
-                    mail.selected === item.id ? "text-foreground" : "text-muted-foreground"
+                    mail.selected === item.id ? "text-foreground" : "text-muted-foreground",
                   )}
                 >
                   {formatDistanceToNow(new Date(item.date), {
@@ -51,9 +52,7 @@ export function MailList({ items }: MailListProps) {
               </div>
               <div className="text-xs font-medium">{item.subject}</div>
             </div>
-            <div className="text-muted-foreground line-clamp-2 text-xs">
-              {item.text.substring(0, 300)}
-            </div>
+            <div className="text-muted-foreground line-clamp-2 text-xs">{item.text.substring(0, 300)}</div>
             {item.labels.length ? (
               <div className="flex items-center gap-2">
                 {item.labels.map((label) => (

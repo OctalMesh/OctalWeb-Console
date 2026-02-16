@@ -1,52 +1,52 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { Layout, Palette, RotateCcw, Settings, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useThemeManager } from '@/hooks/use-theme-manager'
-import { useSidebarConfig } from '@/contexts/sidebar-context'
-import { ThemeTab } from './theme-tab'
-import { LayoutTab } from './layout-tab'
-import { cn } from '@/lib/utils'
+import React from "react";
+import { Layout, Palette, RotateCcw, Settings, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useThemeManager } from "@/hooks/use-theme-manager";
+import { useSidebarConfig } from "@/contexts/sidebar-context";
+import { ThemeTab } from "./theme-tab";
+import { LayoutTab } from "./layout-tab";
+import { cn } from "@/lib/utils";
 
 interface ThemeCustomizerProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
-  const { isDarkMode, resetTheme, applyRadius, applyTheme } = useThemeManager()
-  const { config: sidebarConfig, updateConfig: updateSidebarConfig } = useSidebarConfig()
+  const { isDarkMode, resetTheme, applyRadius, applyTheme } = useThemeManager();
+  const { config: sidebarConfig, updateConfig: updateSidebarConfig } = useSidebarConfig();
 
-  const [activeTab, setActiveTab] = React.useState("theme")
-  const [selectedTheme, setSelectedTheme] = React.useState("default")
-  const [selectedRadius, setSelectedRadius] = React.useState("1rem")
+  const [activeTab, setActiveTab] = React.useState("theme");
+  const [selectedTheme, setSelectedTheme] = React.useState("default");
+  const [selectedRadius, setSelectedRadius] = React.useState("1rem");
 
   const handleReset = () => {
     // Complete reset to application defaults
 
     // 1. Reset all state variables to initial values
-    setSelectedTheme("")  // Clear theme selection after reset
-    setSelectedRadius("1rem")
+    setSelectedTheme(""); // Clear theme selection after reset
+    setSelectedRadius("1rem");
 
     // 2. Completely remove all custom CSS variables
-    resetTheme()
+    resetTheme();
 
     // 3. Reset the radius to default
-    applyRadius("1rem")
+    applyRadius("1rem");
 
     // 4. Reset sidebar to defaults
-    updateSidebarConfig({ variant: "inset", collapsible: "offcanvas", side: "left" })
-  }
+    updateSidebarConfig({ variant: "inset", collapsible: "offcanvas", side: "left" });
+  };
 
   // Re-apply themes when theme mode changes
   React.useEffect(() => {
     if (selectedTheme) {
-      applyTheme(selectedTheme, isDarkMode)
+      applyTheme(selectedTheme, isDarkMode);
     }
-  }, [isDarkMode, selectedTheme, applyTheme])
+  }, [isDarkMode, selectedTheme, applyTheme]);
 
   return (
     <>
@@ -65,7 +65,12 @@ export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
                 <Button variant="outline" size="icon" onClick={handleReset} className="cursor-pointer h-8 w-8">
                   <RotateCcw className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" onClick={() => onOpenChange(false)} className="cursor-pointer h-8 w-8">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => onOpenChange(false)}
+                  className="cursor-pointer h-8 w-8"
+                >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
@@ -79,8 +84,12 @@ export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
             <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
               <div className="py-2">
                 <TabsList className="grid w-full grid-cols-2 rounded-none h-12 p-1.5">
-                  <TabsTrigger value="theme" className="cursor-pointer data-[state=active]:bg-background"><Palette className="h-4 w-4 mr-1" /> Theme</TabsTrigger>
-                  <TabsTrigger value="layout" className="cursor-pointer data-[state=active]:bg-background"><Layout className="h-4 w-4 mr-1" /> Layout</TabsTrigger>
+                  <TabsTrigger value="theme" className="cursor-pointer data-[state=active]:bg-background">
+                    <Palette className="h-4 w-4 mr-1" /> Theme
+                  </TabsTrigger>
+                  <TabsTrigger value="layout" className="cursor-pointer data-[state=active]:bg-background">
+                    <Layout className="h-4 w-4 mr-1" /> Layout
+                  </TabsTrigger>
                 </TabsList>
               </div>
 
@@ -101,12 +110,12 @@ export function ThemeCustomizer({ open, onOpenChange }: ThemeCustomizerProps) {
         </SheetContent>
       </Sheet>
     </>
-  )
+  );
 }
 
 // Floating trigger button - positioned dynamically based on sidebar side
 export function ThemeCustomizerTrigger({ onClick }: { onClick: () => void }) {
-  const { config: sidebarConfig } = useSidebarConfig()
+  const { config: sidebarConfig } = useSidebarConfig();
 
   return (
     <Button
@@ -114,10 +123,10 @@ export function ThemeCustomizerTrigger({ onClick }: { onClick: () => void }) {
       size="icon"
       className={cn(
         "fixed top-1/2 -translate-y-1/2 h-12 w-12 rounded-full shadow-lg z-50 bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer",
-        sidebarConfig.side === "left" ? "right-4" : "left-4"
+        sidebarConfig.side === "left" ? "right-4" : "left-4",
       )}
     >
       <Settings className="h-5 w-5" />
     </Button>
-  )
+  );
 }

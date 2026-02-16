@@ -1,38 +1,25 @@
-"use client"
+"use client";
 
-import { 
-  Clock,
-  Users,
-  Plus,
-  Settings,
-  Download,
-  Share,
-  Bell
-} from "lucide-react"
+import { Bell, Clock, Download, Plus, Settings, Share, Users } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 interface QuickActionsProps {
-  onNewEvent?: () => void
-  onNewMeeting?: () => void
-  onNewReminder?: () => void
-  onSettings?: () => void
+  onNewEvent?: () => void;
+  onNewMeeting?: () => void;
+  onNewReminder?: () => void;
+  onSettings?: () => void;
 }
 
-export function QuickActions({ 
-  onNewEvent, 
-  onNewMeeting, 
-  onNewReminder, 
-  onSettings 
-}: QuickActionsProps) {
+export function QuickActions({ onNewEvent, onNewMeeting, onNewReminder, onSettings }: QuickActionsProps) {
   const quickStats = [
     { label: "Today's Events", value: "3", color: "bg-blue-500" },
     { label: "This Week", value: "12", color: "bg-green-500" },
-    { label: "Pending", value: "2", color: "bg-orange-500" }
-  ]
+    { label: "Pending", value: "2", color: "bg-orange-500" },
+  ];
 
   return (
     <div className="space-y-4">
@@ -60,59 +47,34 @@ export function QuickActions({
           <CardTitle className="text-sm font-medium">Quick Actions</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
-          <Button 
-            variant="outline" 
-            className="w-full justify-start cursor-pointer" 
-            onClick={onNewEvent}
-          >
+          <Button variant="outline" className="w-full justify-start cursor-pointer" onClick={onNewEvent}>
             <Plus className="w-4 h-4 mr-2" />
             New Event
           </Button>
-          
-          <Button 
-            variant="outline" 
-            className="w-full justify-start cursor-pointer" 
-            onClick={onNewMeeting}
-          >
+
+          <Button variant="outline" className="w-full justify-start cursor-pointer" onClick={onNewMeeting}>
             <Users className="w-4 h-4 mr-2" />
             Schedule Meeting
           </Button>
-          
-          <Button 
-            variant="outline" 
-            className="w-full justify-start cursor-pointer" 
-            onClick={onNewReminder}
-          >
+
+          <Button variant="outline" className="w-full justify-start cursor-pointer" onClick={onNewReminder}>
             <Bell className="w-4 h-4 mr-2" />
             Set Reminder
           </Button>
 
           <Separator className="my-3" />
 
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start cursor-pointer" 
-          >
+          <Button variant="ghost" size="sm" className="w-full justify-start cursor-pointer">
             <Share className="w-4 h-4 mr-2" />
             Share Calendar
           </Button>
-          
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start cursor-pointer" 
-          >
+
+          <Button variant="ghost" size="sm" className="w-full justify-start cursor-pointer">
             <Download className="w-4 h-4 mr-2" />
             Export
           </Button>
-          
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="w-full justify-start cursor-pointer" 
-            onClick={onSettings}
-          >
+
+          <Button variant="ghost" size="sm" className="w-full justify-start cursor-pointer" onClick={onSettings}>
             <Settings className="w-4 h-4 mr-2" />
             Settings
           </Button>
@@ -136,7 +98,7 @@ export function QuickActions({
                 <p className="text-xs text-muted-foreground">9:00 AM • Conference Room A</p>
               </div>
             </div>
-            
+
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-purple-500 rounded-full mt-2" />
               <div className="flex-1 min-w-0">
@@ -148,5 +110,5 @@ export function QuickActions({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

@@ -1,53 +1,51 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { z } from "zod"
-import { ArrowUp, BarChart3, CheckCircle2, Clock, ListTodo } from "lucide-react"
+import { useEffect, useState } from "react";
+import { z } from "zod";
+import { ArrowUp, BarChart3, CheckCircle2, Clock, ListTodo } from "lucide-react";
 
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { taskSchema, type Task } from "./data/schema"
-import tasksData from "./data/tasks.json"
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
+import { type Task, taskSchema } from "./data/schema";
+import tasksData from "./data/tasks.json";
 
 // Use static import for tasks data (works in both Vite and Next.js)
 async function getTasks() {
-  return z.array(taskSchema).parse(tasksData)
+  return z.array(taskSchema).parse(tasksData);
 }
 
 export default function TaskPage() {
-  const [tasks, setTasks] = useState<z.infer<typeof taskSchema>[]>([])
-  const [loading, setLoading] = useState(true)
+  const [tasks, setTasks] = useState<z.infer<typeof taskSchema>[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadTasks = async () => {
       try {
-        const taskList = await getTasks()
-        setTasks(taskList)
+        const taskList = await getTasks();
+        setTasks(taskList);
       } catch (error) {
-        console.error("Failed to load tasks:", error)
+        console.error("Failed to load tasks:", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    loadTasks().catch(
-      (error) => console.error("Error loading tasks:", error)
-    )
-  }, [])
+    loadTasks().catch((error) => console.error("Error loading tasks:", error));
+  }, []);
 
   const handleAddTask = (newTask: Task) => {
-    setTasks(prev => [newTask, ...prev])
-  }
+    setTasks((prev) => [newTask, ...prev]);
+  };
 
   // Calculate statistics
   const stats = {
     total: tasks.length,
-    completed: tasks.filter(t => t.status === "completed").length,
-    inProgress: tasks.filter(t => t.status === "in progress").length,
-    pending: tasks.filter(t => t.status === "pending").length,
-  }
+    completed: tasks.filter((t) => t.status === "completed").length,
+    inProgress: tasks.filter((t) => t.status === "in progress").length,
+    pending: tasks.filter((t) => t.status === "pending").length,
+  };
 
   if (loading) {
     return (
@@ -56,13 +54,12 @@ export default function TaskPage() {
           <div className="text-muted-foreground">Loading tasks...</div>
         </div>
       </BaseLayout>
-    )
+    );
   }
 
   return (
     <BaseLayout>
       <div className="h-full flex-1 flex-col space-y-6 px-4 md:px-6 md:flex">
-
         <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
           <Card>
             <CardContent>
@@ -149,9 +146,7 @@ export default function TaskPage() {
         <Card>
           <CardHeader>
             <CardTitle>Task Management</CardTitle>
-            <CardDescription>
-              View, filter, and manage all your project tasks in one place
-            </CardDescription>
+            <CardDescription>View, filter, and manage all your project tasks in one place</CardDescription>
           </CardHeader>
           <CardContent>
             <DataTable data={tasks} columns={columns} onAddTask={handleAddTask} />
@@ -159,5 +154,5 @@ export default function TaskPage() {
         </Card>
       </div>
     </BaseLayout>
-  )
+  );
 }

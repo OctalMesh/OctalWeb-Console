@@ -1,24 +1,17 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Bell, Mail, MessageSquare } from "lucide-react"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Bell, Mail, MessageSquare } from "lucide-react";
 
 const notificationsFormSchema = z.object({
   emailSecurity: z.boolean(),
@@ -47,9 +40,9 @@ const notificationsFormSchema = z.object({
   systemMaintenanceBrowser: z.boolean(),
   systemMaintenanceApp: z.boolean(),
   notificationTiming: z.string(),
-})
+});
 
-type NotificationsFormValues = z.infer<typeof notificationsFormSchema>
+type NotificationsFormValues = z.infer<typeof notificationsFormSchema>;
 
 export default function NotificationSettings() {
   const form = useForm<NotificationsFormValues>({
@@ -82,10 +75,10 @@ export default function NotificationSettings() {
       systemMaintenanceApp: false,
       notificationTiming: "online",
     },
-  })
+  });
 
   function onSubmit(data: NotificationsFormValues) {
-    console.log("Notifications settings submitted:", data)
+    console.log("Notifications settings submitted:", data);
     // Here you would typically save the settings
   }
 
@@ -94,9 +87,7 @@ export default function NotificationSettings() {
       <div className="space-y-6 px-4 lg:px-6">
         <div>
           <h1 className="text-3xl font-bold">Notifications</h1>
-          <p className="text-muted-foreground">
-            Configure how you receive notifications.
-          </p>
+          <p className="text-muted-foreground">Configure how you receive notifications.</p>
         </div>
 
         <Form {...form}>
@@ -105,9 +96,7 @@ export default function NotificationSettings() {
               <Card>
                 <CardHeader>
                   <CardTitle>Email Notifications</CardTitle>
-                  <CardDescription>
-                    Choose what email notifications you want to receive.
-                  </CardDescription>
+                  <CardDescription>Choose what email notifications you want to receive.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
@@ -117,10 +106,7 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>Security alerts</FormLabel>
@@ -137,10 +123,7 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>Product updates</FormLabel>
@@ -157,10 +140,7 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>Marketing emails</FormLabel>
@@ -178,9 +158,7 @@ export default function NotificationSettings() {
               <Card>
                 <CardHeader>
                   <CardTitle>Push Notifications</CardTitle>
-                  <CardDescription>
-                    Configure browser and mobile push notifications.
-                  </CardDescription>
+                  <CardDescription>Configure browser and mobile push notifications.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
@@ -190,16 +168,11 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>New messages</FormLabel>
-                            <p className="text-sm text-muted-foreground">
-                              Get notified when you receive new messages.
-                            </p>
+                            <p className="text-sm text-muted-foreground">Get notified when you receive new messages.</p>
                           </div>
                         </FormItem>
                       )}
@@ -210,16 +183,11 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>Mentions</FormLabel>
-                            <p className="text-sm text-muted-foreground">
-                              Get notified when someone mentions you.
-                            </p>
+                            <p className="text-sm text-muted-foreground">Get notified when someone mentions you.</p>
                           </div>
                         </FormItem>
                       )}
@@ -230,10 +198,7 @@ export default function NotificationSettings() {
                       render={({ field }) => (
                         <FormItem className="flex items-center space-x-3">
                           <FormControl>
-                            <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                            />
+                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <div className="space-y-1">
                             <FormLabel>Task updates</FormLabel>
@@ -251,9 +216,7 @@ export default function NotificationSettings() {
             <Card>
               <CardHeader>
                 <CardTitle>Notification Frequency</CardTitle>
-                <CardDescription>
-                  Control how often you receive notifications.
-                </CardDescription>
+                <CardDescription>Control how often you receive notifications.</CardDescription>
               </CardHeader>
               <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField
@@ -356,10 +319,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -372,10 +332,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -388,10 +345,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -407,10 +361,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -423,10 +374,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -439,10 +387,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -458,10 +403,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -474,10 +416,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -490,10 +429,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -509,10 +445,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -525,10 +458,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -541,10 +471,7 @@ export default function NotificationSettings() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                  />
+                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                                 </FormControl>
                               </FormItem>
                             )}
@@ -577,8 +504,6 @@ export default function NotificationSettings() {
                         </FormItem>
                       )}
                     />
-
-
                   </div>
                 </div>
               </CardContent>
@@ -606,10 +531,7 @@ export default function NotificationSettings() {
                           </div>
                         </div>
                         <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
+                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -628,10 +550,7 @@ export default function NotificationSettings() {
                           </div>
                         </div>
                         <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
+                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -650,10 +569,7 @@ export default function NotificationSettings() {
                           </div>
                         </div>
                         <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
+                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -663,12 +579,16 @@ export default function NotificationSettings() {
             </Card>
 
             <div className="flex space-x-2">
-              <Button type="submit" className="cursor-pointer">Save Preferences</Button>
-              <Button variant="outline" type="reset" className="cursor-pointer">Cancel</Button>
+              <Button type="submit" className="cursor-pointer">
+                Save Preferences
+              </Button>
+              <Button variant="outline" type="reset" className="cursor-pointer">
+                Cancel
+              </Button>
             </div>
           </form>
         </Form>
       </div>
     </BaseLayout>
-  )
+  );
 }

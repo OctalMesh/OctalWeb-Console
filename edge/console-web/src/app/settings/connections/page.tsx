@@ -1,40 +1,47 @@
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Switch } from "@/components/ui/switch"
-import { Github, Slack, Twitter, Zap, Globe, Database, Apple, Chrome, Facebook, Instagram, Dribbble } from "lucide-react"
-import { useState } from "react"
-
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+import {
+  Apple,
+  Chrome,
+  Database,
+  Dribbble,
+  Facebook,
+  Github,
+  Globe,
+  Instagram,
+  Slack,
+  Twitter,
+  Zap,
+} from "lucide-react";
+import { useState } from "react";
 
 export default function ConnectionSettings() {
   // Controlled state for switches
-  const [appleConnected, setAppleConnected] = useState(true)
-  const [googleConnected, setGoogleConnected] = useState(false)
-  const [githubConnected, setGithubConnected] = useState(true)
-  const [slackConnected, setSlackConnected] = useState(false)
-  const [zapierConnected, setZapierConnected] = useState(true)
-  const [webhooksConnected, setWebhooksConnected] = useState(false)
-  const [dbConnected, setDbConnected] = useState(true)
+  const [appleConnected, setAppleConnected] = useState(true);
+  const [googleConnected, setGoogleConnected] = useState(false);
+  const [githubConnected, setGithubConnected] = useState(true);
+  const [slackConnected, setSlackConnected] = useState(false);
+  const [zapierConnected, setZapierConnected] = useState(true);
+  const [webhooksConnected, setWebhooksConnected] = useState(false);
+  const [dbConnected, setDbConnected] = useState(true);
 
   return (
     <BaseLayout>
       <div className="space-y-6 px-4 lg:px-6">
         <div>
           <h1 className="text-3xl font-bold">Connections</h1>
-          <p className="text-muted-foreground">
-            Connect your account with third-party services and integrations.
-          </p>
+          <p className="text-muted-foreground">Connect your account with third-party services and integrations.</p>
         </div>
 
         <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
           <Card>
             <CardHeader>
               <CardTitle>Connected Accounts</CardTitle>
-              <CardDescription>
-                Display content from your connected accounts on your site
-              </CardDescription>
+              <CardDescription>Display content from your connected accounts on your site</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -46,11 +53,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Calendar and contacts</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={appleConnected}
-                    onCheckedChange={setAppleConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={appleConnected} onCheckedChange={setAppleConnected} />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
@@ -61,11 +64,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Calendar and contacts</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={googleConnected}
-                    onCheckedChange={setGoogleConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={googleConnected} onCheckedChange={setGoogleConnected} />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
@@ -76,11 +75,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Manage your Git repositories</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={githubConnected}
-                    onCheckedChange={setGithubConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={githubConnected} onCheckedChange={setGithubConnected} />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
@@ -91,11 +86,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Communication</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={slackConnected}
-                    onCheckedChange={setSlackConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={slackConnected} onCheckedChange={setSlackConnected} />
                 </div>
               </div>
             </CardContent>
@@ -104,9 +95,7 @@ export default function ConnectionSettings() {
           <Card>
             <CardHeader>
               <CardTitle>Social Accounts</CardTitle>
-              <CardDescription>
-                Display content from your connected accounts on your site
-              </CardDescription>
+              <CardDescription>Display content from your connected accounts on your site</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -116,7 +105,9 @@ export default function ConnectionSettings() {
                     <div>
                       <div className="font-medium">
                         Facebook
-                        <Badge variant="outline" className="ml-2">Not Connected</Badge>
+                        <Badge variant="outline" className="ml-2">
+                          Not Connected
+                        </Badge>
                       </div>
                       <div className="text-sm text-muted-foreground">Share updates on Facebook</div>
                     </div>
@@ -132,7 +123,9 @@ export default function ConnectionSettings() {
                     <div>
                       <div className="font-medium">
                         Twitter
-                        <Badge variant="secondary" className="ml-2">connected</Badge>
+                        <Badge variant="secondary" className="ml-2">
+                          connected
+                        </Badge>
                       </div>
                       <div className="text-sm text-muted-foreground">Share updates on Twitter</div>
                     </div>
@@ -148,7 +141,9 @@ export default function ConnectionSettings() {
                     <div>
                       <div className="font-medium">
                         Instagram
-                        <Badge variant="secondary" className="ml-2">connected</Badge>
+                        <Badge variant="secondary" className="ml-2">
+                          connected
+                        </Badge>
                       </div>
                       <div className="text-sm text-muted-foreground">Stay connected at Instagram</div>
                     </div>
@@ -164,7 +159,9 @@ export default function ConnectionSettings() {
                     <div>
                       <div className="font-medium">
                         Dribbble
-                        <Badge variant="outline" className="ml-2">Not Connected</Badge>
+                        <Badge variant="outline" className="ml-2">
+                          Not Connected
+                        </Badge>
                       </div>
                       <div className="text-sm text-muted-foreground">Stay connected at Dribbble</div>
                     </div>
@@ -178,14 +175,11 @@ export default function ConnectionSettings() {
           </Card>
         </div>
 
-
         <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
           <Card>
             <CardHeader>
               <CardTitle>API Integrations</CardTitle>
-              <CardDescription>
-                Configure API connections and webhooks.
-              </CardDescription>
+              <CardDescription>Configure API connections and webhooks.</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -197,11 +191,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Automate workflows with Zapier</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={zapierConnected}
-                    onCheckedChange={setZapierConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={zapierConnected} onCheckedChange={setZapierConnected} />
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
@@ -227,11 +217,7 @@ export default function ConnectionSettings() {
                       <div className="text-sm text-muted-foreground">Sync data with external databases</div>
                     </div>
                   </div>
-                  <Switch
-                    className="cursor-pointer"
-                    checked={dbConnected}
-                    onCheckedChange={setDbConnected}
-                  />
+                  <Switch className="cursor-pointer" checked={dbConnected} onCheckedChange={setDbConnected} />
                 </div>
               </div>
             </CardContent>
@@ -240,9 +226,7 @@ export default function ConnectionSettings() {
           <Card>
             <CardHeader>
               <CardTitle>API Keys</CardTitle>
-              <CardDescription>
-                Manage your API keys and access tokens.
-              </CardDescription>
+              <CardDescription>Manage your API keys and access tokens.</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -277,7 +261,9 @@ export default function ConnectionSettings() {
                 </div>
                 <Separator />
                 <div className="pt-4">
-                  <Button variant="outline" className="cursor-pointer">Add New API Key</Button>
+                  <Button variant="outline" className="cursor-pointer">
+                    Add New API Key
+                  </Button>
                 </div>
               </div>
             </CardContent>
@@ -285,5 +271,5 @@ export default function ConnectionSettings() {
         </div>
       </div>
     </BaseLayout>
-  )
+  );
 }

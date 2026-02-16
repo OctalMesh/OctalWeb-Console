@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -10,27 +10,14 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Plus } from "lucide-react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
+} from "@/components/ui/dialog";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Plus } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const userFormSchema = z.object({
   name: z.string().min(2, {
@@ -51,16 +38,16 @@ const userFormSchema = z.object({
   status: z.string().min(1, {
     message: "Please select a status.",
   }),
-})
+});
 
-type UserFormValues = z.infer<typeof userFormSchema>
+type UserFormValues = z.infer<typeof userFormSchema>;
 
 interface UserFormDialogProps {
-  onAddUser: (user: UserFormValues) => void
+  onAddUser: (user: UserFormValues) => void;
 }
 
 export function UserFormDialog({ onAddUser }: UserFormDialogProps) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const form = useForm<UserFormValues>({
     resolver: zodResolver(userFormSchema),
@@ -72,12 +59,12 @@ export function UserFormDialog({ onAddUser }: UserFormDialogProps) {
       billing: "",
       status: "",
     },
-  })
+  });
 
   function onSubmit(data: UserFormValues) {
-    onAddUser(data)
-    form.reset()
-    setOpen(false)
+    onAddUser(data);
+    form.reset();
+    setOpen(false);
   }
 
   return (
@@ -91,9 +78,7 @@ export function UserFormDialog({ onAddUser }: UserFormDialogProps) {
       <DialogContent className="sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle>Add New User</DialogTitle>
-          <DialogDescription>
-            Create a new user account. Click save when you're done.
-          </DialogDescription>
+          <DialogDescription>Create a new user account. Click save when you're done.</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -205,5 +190,5 @@ export function UserFormDialog({ onAddUser }: UserFormDialogProps) {
         </Form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

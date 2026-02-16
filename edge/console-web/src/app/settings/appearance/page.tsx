@@ -1,20 +1,13 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark"]),
@@ -22,9 +15,9 @@ const appearanceFormSchema = z.object({
   fontSize: z.string().optional(),
   sidebarWidth: z.string().optional(),
   contentWidth: z.string().optional(),
-})
+});
 
-type AppearanceFormValues = z.infer<typeof appearanceFormSchema>
+type AppearanceFormValues = z.infer<typeof appearanceFormSchema>;
 
 export default function AppearanceSettings() {
   const form = useForm<AppearanceFormValues>({
@@ -36,10 +29,10 @@ export default function AppearanceSettings() {
       sidebarWidth: "",
       contentWidth: "",
     },
-  })
+  });
 
   function onSubmit(data: AppearanceFormValues) {
-    console.log("Form submitted:", data)
+    console.log("Form submitted:", data);
     // Here you would typically save the data
   }
 
@@ -48,9 +41,7 @@ export default function AppearanceSettings() {
       <div className="space-y-6 px-4 lg:px-6">
         <div>
           <h1 className="text-3xl font-bold">Appearance</h1>
-          <p className="text-muted-foreground">
-            Customize the appearance of the application.
-          </p>
+          <p className="text-muted-foreground">Customize the appearance of the application.</p>
         </div>
 
         <Form {...form}>
@@ -63,11 +54,7 @@ export default function AppearanceSettings() {
               render={({ field }) => (
                 <FormItem className="space-y-3">
                   <FormControl>
-                    <RadioGroup
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      className="flex gap-4"
-                    >
+                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex gap-4">
                       <FormItem>
                         <FormLabel className="[&:has([data-state=checked])>div]:border-primary cursor-pointer">
                           <FormControl>
@@ -222,11 +209,13 @@ export default function AppearanceSettings() {
               <Button type="submit" className="cursor-pointer">
                 Save Preferences
               </Button>
-              <Button variant="outline" type="button" className="cursor-pointer">Cancel</Button>
+              <Button variant="outline" type="button" className="cursor-pointer">
+                Cancel
+              </Button>
             </div>
           </form>
         </Form>
       </div>
     </BaseLayout>
-  )
+  );
 }

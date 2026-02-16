@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useNavigate } from "react-router-dom"
-import { Command as CommandPrimitive } from "cmdk"
+import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import { Command as CommandPrimitive } from "cmdk";
 import {
-  Search,
-  LayoutPanelLeft,
-  LayoutDashboard,
-  Mail,
-  CheckSquare,
-  MessageCircle,
-  Calendar,
-  Settings,
-  HelpCircle,
-  User,
   Bell,
+  Calendar,
+  CheckSquare,
+  HelpCircle,
+  LayoutDashboard,
+  LayoutPanelLeft,
   Link2,
-  Palette,
   type LucideIcon,
-} from "lucide-react"
+  Mail,
+  MessageCircle,
+  Palette,
+  Search,
+  Settings,
+  User,
+} from "lucide-react";
 
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
-import { cn } from "@/lib/utils"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -31,12 +31,12 @@ const Command = React.forwardRef<
     ref={ref}
     className={cn(
       "flex h-full w-full flex-col overflow-hidden rounded-xl bg-white dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50",
-      className
+      className,
     )}
     {...props}
   />
-))
-Command.displayName = CommandPrimitive.displayName
+));
+Command.displayName = CommandPrimitive.displayName;
 
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
@@ -46,12 +46,12 @@ const CommandInput = React.forwardRef<
     ref={ref}
     className={cn(
       "flex h-12 w-full border-none bg-transparent px-4 py-3 text-[17px] outline-none placeholder:text-zinc-500 dark:placeholder:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800 mb-4",
-      className
+      className,
     )}
     {...props}
   />
-))
-CommandInput.displayName = CommandPrimitive.Input.displayName
+));
+CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
@@ -62,8 +62,8 @@ const CommandList = React.forwardRef<
     className={cn("max-h-100 overflow-y-auto overflow-x-hidden pb-2", className)}
     {...props}
   />
-))
-CommandList.displayName = CommandPrimitive.List.displayName
+));
+CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
@@ -74,8 +74,8 @@ const CommandEmpty = React.forwardRef<
     className="flex h-12 items-center justify-center text-sm text-zinc-500 dark:text-zinc-400"
     {...props}
   />
-))
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName
+));
+CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
@@ -85,12 +85,12 @@ const CommandGroup = React.forwardRef<
     ref={ref}
     className={cn(
       "overflow-hidden px-2 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-zinc-500 dark:**:[[cmdk-group-heading]]:text-zinc-400 not-first:mt-2",
-      className
+      className,
     )}
     {...props}
   />
-))
-CommandGroup.displayName = CommandPrimitive.Group.displayName
+));
+CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
@@ -100,28 +100,28 @@ const CommandItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex h-12 cursor-pointer select-none items-center gap-2 rounded-lg px-4 text-sm text-zinc-700 dark:text-zinc-300 outline-none transition-colors data-[disabled=true]:pointer-events-none data-[selected=true]:bg-zinc-100 dark:data-[selected=true]:bg-zinc-800 data-[selected=true]:text-zinc-900 dark:data-[selected=true]:text-zinc-100 data-[disabled=true]:opacity-50 [&+[cmdk-item]]:mt-1",
-      className
+      className,
     )}
     {...props}
   />
-))
-CommandItem.displayName = CommandPrimitive.Item.displayName
+));
+CommandItem.displayName = CommandPrimitive.Item.displayName;
 
 interface SearchItem {
-  title: string
-  url: string
-  group: string
-  icon?: LucideIcon
+  title: string;
+  url: string;
+  group: string;
+  icon?: LucideIcon;
 }
 
 interface CommandSearchProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
-  const navigate = useNavigate()
-  const commandRef = React.useRef<HTMLDivElement>(null)
+  const navigate = useNavigate();
+  const commandRef = React.useRef<HTMLDivElement>(null);
 
   const searchItems: SearchItem[] = [
     // Dashboards
@@ -143,55 +143,51 @@ export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
 
     // Pages
     { title: "FAQs", url: "/faqs", group: "Pages", icon: HelpCircle },
-  ]
+  ];
 
-  const groupedItems = searchItems.reduce((acc, item) => {
-    if (!acc[item.group]) {
-      acc[item.group] = []
-    }
-    acc[item.group].push(item)
-    return acc
-  }, {} as Record<string, SearchItem[]>)
+  const groupedItems = searchItems.reduce(
+    (acc, item) => {
+      if (!acc[item.group]) {
+        acc[item.group] = [];
+      }
+      acc[item.group].push(item);
+      return acc;
+    },
+    {} as Record<string, SearchItem[]>,
+  );
 
   const handleSelect = (url: string) => {
-    navigate(url)
-    onOpenChange(false)
+    navigate(url);
+    onOpenChange(false);
     // Bounce effect like Vercel
     if (commandRef.current) {
-      commandRef.current.style.transform = 'scale(0.96)'
+      commandRef.current.style.transform = "scale(0.96)";
       setTimeout(() => {
         if (commandRef.current) {
-          commandRef.current.style.transform = ''
+          commandRef.current.style.transform = "";
         }
-      }, 100)
+      }, 100);
     }
-  }
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="overflow-hidden p-0 shadow-2xl border border-zinc-200 dark:border-zinc-800 max-w-160">
         <DialogTitle className="sr-only">Command Search</DialogTitle>
-        <Command
-          ref={commandRef}
-          className="transition-transform duration-100 ease-out"
-        >
+        <Command ref={commandRef} className="transition-transform duration-100 ease-out">
           <CommandInput placeholder="What do you need?" autoFocus />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             {Object.entries(groupedItems).map(([group, items]) => (
               <CommandGroup key={group} heading={group}>
                 {items.map((item) => {
-                  const Icon = item.icon
+                  const Icon = item.icon;
                   return (
-                    <CommandItem
-                      key={item.url}
-                      value={item.title}
-                      onSelect={() => handleSelect(item.url)}
-                    >
+                    <CommandItem key={item.url} value={item.title} onSelect={() => handleSelect(item.url)}>
                       {Icon && <Icon className="mr-2 h-4 w-4" />}
                       {item.title}
                     </CommandItem>
-                  )
+                  );
                 })}
               </CommandGroup>
             ))}
@@ -199,7 +195,7 @@ export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
         </Command>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
 export function SearchTrigger({ onClick }: { onClick: () => void }) {
@@ -215,5 +211,5 @@ export function SearchTrigger({ onClick }: { onClick: () => void }) {
         <span className="text-xs">⌘</span>K
       </kbd>
     </button>
-  )
+  );
 }

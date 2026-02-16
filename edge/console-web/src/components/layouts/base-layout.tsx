@@ -1,24 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { AppSidebar } from "@/components/navigation/app-sidebar"
-import { SiteHeader } from "@/components/site-header"
-import { ThemeCustomizer, ThemeCustomizerTrigger } from "@/components/theme-customizer"
-import { useSidebarConfig } from "@/hooks/use-sidebar-config"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
+import * as React from "react";
+import { AppSidebar } from "@/components/navigation/app-sidebar";
+import { SiteHeader } from "@/components/site-header";
+import { ThemeCustomizer, ThemeCustomizerTrigger } from "@/components/theme-customizer";
+import { useSidebarConfig } from "@/hooks/use-sidebar-config";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 interface BaseLayoutProps {
-  children: React.ReactNode
-  title?: string
-  description?: string
+  children: React.ReactNode;
+  title?: string;
+  description?: string;
 }
 
 export function BaseLayout({ children, title, description }: BaseLayoutProps) {
-  const [themeCustomizerOpen, setThemeCustomizerOpen] = React.useState(false)
-  const { config } = useSidebarConfig()
+  const [themeCustomizerOpen, setThemeCustomizerOpen] = React.useState(false);
+  const { config } = useSidebarConfig();
 
   return (
     <SidebarProvider
@@ -33,11 +30,7 @@ export function BaseLayout({ children, title, description }: BaseLayoutProps) {
     >
       {config.side === "left" ? (
         <>
-          <AppSidebar
-            variant={config.variant}
-            collapsible={config.collapsible}
-            side={config.side}
-          />
+          <AppSidebar variant={config.variant} collapsible={config.collapsible} side={config.side} />
           <SidebarInset>
             <SiteHeader />
             <div className="flex flex-1 flex-col">
@@ -47,9 +40,7 @@ export function BaseLayout({ children, title, description }: BaseLayoutProps) {
                     <div className="px-4 lg:px-6">
                       <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-                        {description && (
-                          <p className="text-muted-foreground">{description}</p>
-                        )}
+                        {description && <p className="text-muted-foreground">{description}</p>}
                       </div>
                     </div>
                   )}
@@ -70,9 +61,7 @@ export function BaseLayout({ children, title, description }: BaseLayoutProps) {
                     <div className="px-4 lg:px-6">
                       <div className="flex flex-col gap-2">
                         <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-                        {description && (
-                          <p className="text-muted-foreground">{description}</p>
-                        )}
+                        {description && <p className="text-muted-foreground">{description}</p>}
                       </div>
                     </div>
                   )}
@@ -81,20 +70,13 @@ export function BaseLayout({ children, title, description }: BaseLayoutProps) {
               </div>
             </div>
           </SidebarInset>
-          <AppSidebar
-            variant={config.variant}
-            collapsible={config.collapsible}
-            side={config.side}
-          />
+          <AppSidebar variant={config.variant} collapsible={config.collapsible} side={config.side} />
         </>
       )}
 
       {/* Theme Customizer */}
       <ThemeCustomizerTrigger onClick={() => setThemeCustomizerOpen(true)} />
-      <ThemeCustomizer
-        open={themeCustomizerOpen}
-        onOpenChange={setThemeCustomizerOpen}
-      />
+      <ThemeCustomizer open={themeCustomizerOpen} onOpenChange={setThemeCustomizerOpen} />
     </SidebarProvider>
-  )
+  );
 }

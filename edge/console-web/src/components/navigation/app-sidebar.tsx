@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
-  LayoutPanelLeft,
-  LayoutDashboard,
-  Mail,
-  CheckSquare,
-  MessageCircle,
-  Calendar,
-  Shield,
   AlertTriangle,
-  Settings,
+  Calendar,
+  CheckSquare,
   HelpCircle,
+  LayoutDashboard,
+  LayoutPanelLeft,
+  Mail,
+  MessageCircle,
+  Settings,
+  Shield,
   Users,
-} from "lucide-react"
-import { Link } from "react-router-dom"
-import { Logo } from "@/components/logo"
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Logo } from "@/components/logo";
 
-import { NavMain } from "@/components/navigation/nav-main"
-import { NavUser } from "@/components/navigation/nav-user"
+import { NavMain } from "@/components/navigation/nav-main";
+import { NavUser } from "@/components/navigation/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -27,7 +27,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const data = {
   user: {
@@ -99,7 +99,7 @@ const data = {
             {
               title: "Forgot Password",
               url: "/auth/forgot-password",
-            }
+            },
           ],
         },
         {
@@ -164,7 +164,7 @@ const data = {
       ],
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -195,5 +195,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

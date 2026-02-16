@@ -1,11 +1,11 @@
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { MetricsOverview } from "./components/metrics-overview"
-import { SalesChart } from "./components/sales-chart"
-import { RecentTransactions } from "./components/recent-transactions"
-import { TopProducts } from "./components/top-products"
-import { CustomerInsights } from "./components/customer-insights"
-import { QuickActions } from "./components/quick-actions"
-import { RevenueBreakdown } from "./components/revenue-breakdown"
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { MetricsOverview } from "./components/metrics-overview";
+import { SalesChart } from "./components/sales-chart";
+import { RecentTransactions } from "./components/recent-transactions";
+import { TopProducts } from "./components/top-products";
+import { CustomerInsights } from "./components/customer-insights";
+import { QuickActions } from "./components/quick-actions";
+import { RevenueBreakdown } from "./components/revenue-breakdown";
 
 export default function Dashboard2() {
   return (
@@ -16,9 +16,7 @@ export default function Dashboard2() {
         <div className="flex md:flex-row flex-col md:items-center justify-between gap-4 md:gap-6">
           <div className="flex flex-col gap-2">
             <h1 className="text-2xl font-bold tracking-tight">Business Dashboard</h1>
-            <p className="text-muted-foreground">
-              Monitor your business performance and key metrics in real-time
-            </p>
+            <p className="text-muted-foreground">Monitor your business performance and key metrics in real-time</p>
           </div>
           <QuickActions />
         </div>
@@ -46,5 +44,5 @@ export default function Dashboard2() {
         </div>
       </div>
     </BaseLayout>
-  )
+  );
 }

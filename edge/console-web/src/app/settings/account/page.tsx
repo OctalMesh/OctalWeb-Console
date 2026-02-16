@@ -1,21 +1,14 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { BaseLayout } from "@/components/layouts/base-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { BaseLayout } from "@/components/layouts/base-layout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const accountFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -25,9 +18,9 @@ const accountFormSchema = z.object({
   currentPassword: z.string().optional(),
   newPassword: z.string().optional(),
   confirmPassword: z.string().optional(),
-})
+});
 
-type AccountFormValues = z.infer<typeof accountFormSchema>
+type AccountFormValues = z.infer<typeof accountFormSchema>;
 
 export default function AccountSettings() {
   const form = useForm<AccountFormValues>({
@@ -41,10 +34,10 @@ export default function AccountSettings() {
       newPassword: "",
       confirmPassword: "",
     },
-  })
+  });
 
   function onSubmit(data: AccountFormValues) {
-    console.log("Form submitted:", data)
+    console.log("Form submitted:", data);
     // Here you would typically save the data
   }
 
@@ -53,9 +46,7 @@ export default function AccountSettings() {
       <div className="space-y-6 px-4 lg:px-6">
         <div>
           <h1 className="text-3xl font-bold">Account Settings</h1>
-          <p className="text-muted-foreground">
-            Manage your account settings and preferences.
-          </p>
+          <p className="text-muted-foreground">Manage your account settings and preferences.</p>
         </div>
 
         <Form {...form}>
@@ -128,9 +119,7 @@ export default function AccountSettings() {
             <Card>
               <CardHeader>
                 <CardTitle>Change Password</CardTitle>
-                <CardDescription>
-                  Update your password to keep your account secure.
-                </CardDescription>
+                <CardDescription>Update your password to keep your account secure.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <FormField
@@ -178,9 +167,7 @@ export default function AccountSettings() {
             <Card>
               <CardHeader>
                 <CardTitle>Danger Zone</CardTitle>
-                <CardDescription>
-                  Irreversible and destructive actions.
-                </CardDescription>
+                <CardDescription>Irreversible and destructive actions.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <Separator />
@@ -199,12 +186,16 @@ export default function AccountSettings() {
             </Card>
 
             <div className="flex space-x-2">
-              <Button type="submit" className="cursor-pointer">Save Changes</Button>
-              <Button variant="outline" type="reset" className="cursor-pointer">Cancel</Button>
+              <Button type="submit" className="cursor-pointer">
+                Save Changes
+              </Button>
+              <Button variant="outline" type="reset" className="cursor-pointer">
+                Cancel
+              </Button>
             </div>
           </form>
         </Form>
       </div>
     </BaseLayout>
-  )
+  );
 }

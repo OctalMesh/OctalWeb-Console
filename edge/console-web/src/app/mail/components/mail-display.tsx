@@ -1,25 +1,17 @@
-"use client"
+"use client";
 
-import { addDays } from "date-fns";
-import { addHours } from "date-fns";
-import { format } from "date-fns";
-import { nextSaturday } from "date-fns";
+import { addDays, addHours, format, nextSaturday } from "date-fns";
+import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from "lucide-react";
+
 import {
-  Archive,
-  ArchiveX,
-  Clock,
-  Forward,
-  MoreVertical,
-  Reply,
-  ReplyAll,
-  Trash2,
-} from "lucide-react";
-
-import { DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
@@ -39,22 +31,46 @@ export function MailDisplay({ mail }: MailDisplayProps) {
     <div className="flex h-full flex-col">
       <div className="flex items-center p-2">
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" disabled={!mail} title="Archive" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Archive"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <Archive className="size-4" />
             <span className="sr-only">Archive</span>
           </Button>
-          <Button variant="ghost" size="icon" disabled={!mail} title="Move to junk" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Move to junk"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <ArchiveX className="size-4" />
             <span className="sr-only">Move to junk</span>
           </Button>
-          <Button variant="ghost" size="icon" disabled={!mail} title="Move to trash" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Move to trash"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <Trash2 className="size-4" />
             <span className="sr-only">Move to trash</span>
           </Button>
           <Separator orientation="vertical" className="mx-1 h-6" />
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" size="icon" disabled={!mail} title="Snooze" className="cursor-pointer disabled:cursor-not-allowed">
+              <Button
+                variant="ghost"
+                size="icon"
+                disabled={!mail}
+                title="Snooze"
+                className="cursor-pointer disabled:cursor-not-allowed"
+              >
                 <Clock className="size-4" />
                 <span className="sr-only">Snooze</span>
               </Button>
@@ -94,11 +110,11 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                   mode="single"
                   selected={selectedDate}
                   onSelect={setSelectedDate}
-                  classNames={{ 
+                  classNames={{
                     today: "bg-none",
                     day: "cursor-pointer",
                     day_selected: "cursor-pointer",
-                    day_today: "cursor-pointer"
+                    day_today: "cursor-pointer",
                   }}
                   required
                 />
@@ -107,15 +123,33 @@ export function MailDisplay({ mail }: MailDisplayProps) {
           </Popover>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <Button variant="ghost" size="icon" disabled={!mail} title="Reply" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Reply"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <Reply className="size-4" />
             <span className="sr-only">Reply</span>
           </Button>
-          <Button variant="ghost" size="icon" disabled={!mail} title="Reply all" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Reply all"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <ReplyAll className="size-4" />
             <span className="sr-only">Reply all</span>
           </Button>
-          <Button variant="ghost" size="icon" disabled={!mail} title="Forward" className="cursor-pointer disabled:cursor-not-allowed">
+          <Button
+            variant="ghost"
+            size="icon"
+            disabled={!mail}
+            title="Forward"
+            className="cursor-pointer disabled:cursor-not-allowed"
+          >
             <Forward className="size-4" />
             <span className="sr-only">Forward</span>
           </Button>
@@ -159,9 +193,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
               </div>
             </div>
             {mail.date && (
-              <div className="text-muted-foreground ml-auto text-xs">
-                {format(new Date(mail.date), "PPpp")}
-              </div>
+              <div className="text-muted-foreground ml-auto text-xs">{format(new Date(mail.date), "PPpp")}</div>
             )}
           </div>
           <Separator />

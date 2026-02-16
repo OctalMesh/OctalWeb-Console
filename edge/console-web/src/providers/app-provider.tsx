@@ -7,12 +7,10 @@ const basename = import.meta.env.VITE_BASENAME || "";
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   return (
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <SidebarConfigProvider>
-          <Router basename={basename}>
-            {children}
-          </Router>
-        </SidebarConfigProvider>
-      </ThemeProvider>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <SidebarConfigProvider>
+        <Router basename={basename}>{children}</Router>
+      </SidebarConfigProvider>
+    </ThemeProvider>
   );
 }

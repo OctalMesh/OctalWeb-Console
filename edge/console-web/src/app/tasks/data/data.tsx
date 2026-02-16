@@ -1,9 +1,4 @@
-import {
-  CheckCircle2,
-  Circle,
-  Clock,
-  PlayCircle,
-} from "lucide-react"
+import { CheckCircle2, Circle, Clock, PlayCircle } from "lucide-react";
 
 export const categories = [
   {
@@ -26,7 +21,7 @@ export const categories = [
     value: "refactor",
     label: "Refactor",
   },
-]
+];
 
 export const statuses = [
   {
@@ -49,7 +44,7 @@ export const statuses = [
     label: "Completed",
     icon: CheckCircle2,
   },
-]
+];
 
 export const priorities = [
   {
@@ -72,4 +67,4 @@ export const priorities = [
     value: "critical",
     icon: Circle,
   },
-]
+];

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Plus } from "lucide-react"
-import { z } from "zod"
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { z } from "zod";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -12,20 +12,14 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-import { priorities, statuses, categories } from "../data/data"
-import type { Task } from "../data/schema"
+import { categories, priorities, statuses } from "../data/data";
+import type { Task } from "../data/schema";
 
 // Extended task schema for the form
 const taskFormSchema = z.object({
@@ -35,17 +29,17 @@ const taskFormSchema = z.object({
   status: z.string(),
   category: z.string(),
   priority: z.string(),
-})
+});
 
-type TaskFormData = z.infer<typeof taskFormSchema>
+type TaskFormData = z.infer<typeof taskFormSchema>;
 
 interface AddTaskModalProps {
-  onAddTask?: (task: Task) => void
-  trigger?: React.ReactNode
+  onAddTask?: (task: Task) => void;
+  trigger?: React.ReactNode;
 }
 
 export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState<TaskFormData>({
     id: "",
     title: "",
@@ -53,25 +47,25 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
     status: "todo",
     category: "feature",
     priority: "normal",
-  })
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Generate unique task ID
   const generateTaskId = () => {
-    const prefix = "TASK"
-    const number = Math.floor(Math.random() * 9999) + 1000
-    return `${prefix}-${number}`
-  }
+    const prefix = "TASK";
+    const number = Math.floor(Math.random() * 9999) + 1000;
+    return `${prefix}-${number}`;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       // Validate form data
       const validatedData = taskFormSchema.parse({
         ...formData,
         id: generateTaskId(),
-      })
+      });
 
       // Create the task
       const newTask: Task = {
@@ -80,9 +74,9 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
         status: validatedData.status,
         category: validatedData.category,
         priority: validatedData.priority,
-      }
+      };
 
-      onAddTask?.(newTask)
+      onAddTask?.(newTask);
 
       // Reset form and close modal
       setFormData({
@@ -92,21 +86,21 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
         status: "todo",
         category: "feature",
         priority: "normal",
-      })
-      setErrors({})
-      setOpen(false)
+      });
+      setErrors({});
+      setOpen(false);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const newErrors: Record<string, string> = {}
+        const newErrors: Record<string, string> = {};
         error.issues.forEach((issue) => {
           if (issue.path[0]) {
-            newErrors[issue.path[0] as string] = issue.message
+            newErrors[issue.path[0] as string] = issue.message;
           }
-        })
-        setErrors(newErrors)
+        });
+        setErrors(newErrors);
       }
     }
-  }
+  };
 
   const handleCancel = () => {
     setFormData({
@@ -116,10 +110,10 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
       status: "todo",
       category: "feature",
       priority: "normal",
-    })
-    setErrors({})
-    setOpen(false)
-  }
+    });
+    setErrors({});
+    setOpen(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -147,12 +141,10 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
               id="title"
               placeholder="Enter task title..."
               value={formData.title}
-              onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
               className={errors.title ? "border-red-500" : ""}
             />
-            {errors.title && (
-              <p className="text-sm text-red-500">{errors.title}</p>
-            )}
+            {errors.title && <p className="text-sm text-red-500">{errors.title}</p>}
           </div>
 
           {/* Task Description */}
@@ -162,7 +154,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
               id="description"
               placeholder="Provide additional details about the task..."
               value={formData.description}
-              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
               rows={3}
             />
           </div>
@@ -174,7 +166,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
               <Label htmlFor="status">Status</Label>
               <Select
                 value={formData.status}
-                onValueChange={(value) => setFormData(prev => ({ ...prev, status: value }))}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, status: value }))}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select status" />
@@ -183,9 +175,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
                   {statuses.map((status) => (
                     <SelectItem key={status.value} value={status.value}>
                       <div className="flex items-center">
-                        {status.icon && (
-                          <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-                        )}
+                        {status.icon && <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
                         {status.label}
                       </div>
                     </SelectItem>
@@ -199,7 +189,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
               <Label htmlFor="category">Category</Label>
               <Select
                 value={formData.category}
-                onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, category: value }))}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select category" />
@@ -221,7 +211,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
               <Label htmlFor="priority">Priority</Label>
               <Select
                 value={formData.priority}
-                onValueChange={(value) => setFormData(prev => ({ ...prev, priority: value }))}
+                onValueChange={(value) => setFormData((prev) => ({ ...prev, priority: value }))}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select priority" />
@@ -229,9 +219,7 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
                 <SelectContent>
                   {priorities.map((priority) => (
                     <SelectItem key={priority.value} value={priority.value}>
-                      <div className="flex items-center">
-                        {priority.label}
-                      </div>
+                      <div className="flex items-center">{priority.label}</div>
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -252,5 +240,5 @@ export function AddTaskModal({ onAddTask, trigger }: AddTaskModalProps) {
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

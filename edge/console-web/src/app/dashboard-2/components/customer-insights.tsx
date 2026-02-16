@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Users, MapPin, TrendingUp, Target, ArrowUpIcon, UserIcon } from "lucide-react"
+import { useState } from "react";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { ArrowUpIcon, MapPin, Target, TrendingUp, UserIcon, Users } from "lucide-react";
 
 const customerGrowthData = [
   { month: "Jan", new: 245, returning: 890, churn: 45 },
@@ -16,7 +16,7 @@ const customerGrowthData = [
   { month: "Apr", new: 456, returning: 1156, churn: 61 },
   { month: "May", new: 523, returning: 1298, churn: 47 },
   { month: "Jun", new: 634, returning: 1445, churn: 55 },
-]
+];
 
 const chartConfig = {
   new: {
@@ -31,7 +31,7 @@ const chartConfig = {
     label: "Churned",
     color: "var(--chart-3)",
   },
-}
+};
 
 const demographicsData = [
   { ageGroup: "18-24", customers: 2847, percentage: "18.0%", growth: "+15.2%", growthColor: "text-green-600" },
@@ -39,7 +39,7 @@ const demographicsData = [
   { ageGroup: "35-44", customers: 3982, percentage: "25.1%", growth: "+3.4%", growthColor: "text-blue-600" },
   { ageGroup: "45-54", customers: 2734, percentage: "17.2%", growth: "+1.2%", growthColor: "text-orange-600" },
   { ageGroup: "55+", customers: 1763, percentage: "11.2%", growth: "-2.1%", growthColor: "text-red-600" },
-]
+];
 
 const regionsData = [
   { region: "North America", customers: 6847, revenue: "$847,523", growth: "+12.3%", growthColor: "text-green-600" },
@@ -47,10 +47,10 @@ const regionsData = [
   { region: "Asia Pacific", customers: 2892, revenue: "$321,456", growth: "+18.4%", growthColor: "text-blue-600" },
   { region: "Latin America", customers: 1123, revenue: "$187,234", growth: "+15.8%", growthColor: "text-green-600" },
   { region: "Others", customers: 464, revenue: "$67,891", growth: "+5.2%", growthColor: "text-orange-600" },
-]
+];
 
 export function CustomerInsights() {
-  const [activeTab, setActiveTab] = useState("growth")
+  const [activeTab, setActiveTab] = useState("growth");
 
   return (
     <Card className="h-fit">
@@ -98,15 +98,15 @@ export function CustomerInsights() {
                         dataKey="month"
                         className="text-xs"
                         tick={{ fontSize: 12 }}
-                        tickLine={{ stroke: 'var(--border)' }}
-                        axisLine={{ stroke: 'var(--border)' }}
+                        tickLine={{ stroke: "var(--border)" }}
+                        axisLine={{ stroke: "var(--border)" }}
                       />
                       <YAxis
                         className="text-xs"
                         tick={{ fontSize: 12 }}
-                        tickLine={{ stroke: 'var(--border)' }}
-                        axisLine={{ stroke: 'var(--border)' }}
-                        domain={[0, 'dataMax']}
+                        tickLine={{ stroke: "var(--border)" }}
+                        axisLine={{ stroke: "var(--border)" }}
+                        domain={[0, "dataMax"]}
                       />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Bar dataKey="new" fill="var(--color-new)" radius={[2, 2, 0, 0]} />
@@ -201,7 +201,6 @@ export function CustomerInsights() {
             </div>
           </TabsContent>
 
-
           <TabsContent value="regions" className="mt-8">
             <div className="rounded-lg border bg-card">
               <Table>
@@ -244,5 +243,5 @@ export function CustomerInsights() {
         </Tabs>
       </CardContent>
     </Card>
-  )
+  );
 }

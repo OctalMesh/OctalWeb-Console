@@ -1,7 +1,7 @@
 import type { ThemePreset } from "../types/theme";
 
 export const shadcnThemePresets: Record<string, ThemePreset> = {
-  "default": {
+  default: {
     label: "Default",
     styles: {
       light: {
@@ -30,7 +30,8 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
         "chart-4": "oklch(0.828 0.189 84.429)",
         "chart-5": "oklch(0.769 0.188 70.08)",
         radius: "1rem",
-        "font-sans": "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+        "font-sans":
+          "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
         "font-mono": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
       },
       dark: {
@@ -59,10 +60,11 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
         "chart-4": "oklch(0.627 0.265 303.9)",
         "chart-5": "oklch(0.645 0.246 16.439)",
         radius: "1rem",
-        "font-sans": "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+        "font-sans":
+          "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
         "font-mono": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
-      }
-    }
+      },
+    },
   },
 
   "modern-minimal": {
@@ -319,7 +321,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "twitter": {
+  twitter: {
     label: "Twitter",
     createdAt: "2025-04-24",
     styles: {
@@ -491,7 +493,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "bubblegum": {
+  bubblegum: {
     label: "Bubblegum",
     createdAt: "2025-04-18",
     styles: {
@@ -667,7 +669,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "notebook": {
+  notebook: {
     label: "Notebook",
     createdAt: "2025-05-10",
     styles: {
@@ -865,7 +867,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "catppuccin": {
+  catppuccin: {
     label: "Catppuccin",
     createdAt: "2025-04-18",
     styles: {
@@ -950,7 +952,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "graphite": {
+  graphite: {
     label: "Graphite",
     createdAt: "2025-04-17",
     styles: {
@@ -1038,7 +1040,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "perpetuity": {
+  perpetuity: {
     label: "Perpetuity",
     createdAt: "2025-04-01",
     styles: {
@@ -1303,7 +1305,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "tangerine": {
+  tangerine: {
     label: "Tangerine",
     createdAt: "2025-04-09",
     styles: {
@@ -1477,7 +1479,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "nature": {
+  nature: {
     label: "Nature",
     styles: {
       light: {
@@ -1813,7 +1815,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "supabase": {
+  supabase: {
     label: "Supabase",
     createdAt: "2025-04-27",
     styles: {
@@ -2070,7 +2072,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "claymorphism": {
+  claymorphism: {
     label: "Claymorphism",
     styles: {
       light: {
@@ -2156,7 +2158,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "cyberpunk": {
+  cyberpunk: {
     label: "Cyberpunk",
     styles: {
       light: {
@@ -2410,7 +2412,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "caffeine": {
+  caffeine: {
     label: "Caffeine",
     styles: {
       light: {
@@ -2740,7 +2742,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "candyland": {
+  candyland: {
     label: "Candyland",
     styles: {
       light: {
@@ -3145,7 +3147,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "claude": {
+  claude: {
     label: "Claude",
     styles: {
       light: {
@@ -3220,7 +3222,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "vercel": {
+  vercel: {
     label: "Vercel",
     createdAt: "2025-04-13",
     styles: {
@@ -3309,7 +3311,7 @@ export const shadcnThemePresets: Record<string, ThemePreset> = {
     },
   },
 
-  "mono": {
+  mono: {
     label: "Mono",
     createdAt: "2025-04-20",
     styles: {
