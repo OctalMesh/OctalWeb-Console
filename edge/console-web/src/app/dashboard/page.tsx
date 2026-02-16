@@ -16,8 +16,8 @@ export default function Page() {
           <ChartAreaInteractive />
         </div>
         <div className="@container/main">
-          <DataTable 
-            data={data} 
+          <DataTable
+            data={data}
             pastPerformanceData={pastPerformanceData}
             keyPersonnelData={keyPersonnelData}
             focusDocumentsData={focusDocumentsData}

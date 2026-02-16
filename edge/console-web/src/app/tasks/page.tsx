@@ -32,7 +32,9 @@ export default function TaskPage() {
       }
     }
 
-    loadTasks()
+    loadTasks().catch(
+      (error) => console.error("Error loading tasks:", error)
+    )
   }, [])
 
   const handleAddTask = (newTask: Task) => {
@@ -49,7 +51,7 @@ export default function TaskPage() {
 
   if (loading) {
     return (
-      <BaseLayout title="Tasks" description="A powerful task and issue tracker built with Tanstack Table.">
+      <BaseLayout>
         <div className="flex items-center justify-center h-96">
           <div className="text-muted-foreground">Loading tasks...</div>
         </div>
@@ -58,22 +60,9 @@ export default function TaskPage() {
   }
 
   return (
-    <BaseLayout title="Tasks" description="A powerful task and issue tracker built with Tanstack Table.">
-      {/* Mobile view placeholder - shows message instead of images */}
-      <div className="md:hidden">
-        <div className="flex items-center justify-center h-96 border rounded-lg bg-muted/20">
-          <div className="text-center p-8">
-            <h3 className="text-lg font-semibold mb-2">Tasks Dashboard</h3>
-            <p className="text-muted-foreground">
-              Please use a larger screen to view the full tasks interface.
-            </p>
-          </div>
-        </div>
-      </div>
+    <BaseLayout>
+      <div className="h-full flex-1 flex-col space-y-6 px-4 md:px-6 md:flex">
 
-      {/* Desktop view */}
-      <div className="hidden h-full flex-1 flex-col space-y-6 px-4 md:px-6 md:flex">
-        {/* Stats Cards */}
         <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
           <Card>
             <CardContent>

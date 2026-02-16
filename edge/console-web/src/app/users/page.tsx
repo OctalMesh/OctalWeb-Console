@@ -67,18 +67,15 @@ export default function UsersPage() {
   }
 
   return (
-    <BaseLayout 
-      title="Users" 
-      description="Manage your users and their permissions"
-    >
+    <BaseLayout>
       <div className="flex flex-col gap-4">
         <div className="@container/main px-4 lg:px-6">
           <StatCards />
         </div>
-        
+
         <div className="@container/main px-4 lg:px-6 mt-8 lg:mt-12">
-         
-          <DataTable 
+
+          <DataTable
             users={users}
             onDeleteUser={handleDeleteUser}
             onEditUser={handleEditUser}
