@@ -1,27 +1,17 @@
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
+import { Slot } from "radix-ui"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, } from "@/components/ui/sheet"
 import { Skeleton } from "@/components/ui/skeleton"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from "@/components/ui/tooltip"
+import { ScrollArea } from "@/components/ui/scroll-area.tsx";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -346,11 +336,7 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
-      className={cn(
-        "flex flex-col gap-2 p-2",
-        "[&>[data-slot=card]]:group-data-[collapsible=icon]:hidden",
-        className
-      )}
+      className={cn("flex flex-col gap-2 p-2", className)}
       {...props}
     />
   )
@@ -370,13 +356,13 @@ function SidebarSeparator({
   )
 }
 
-function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
+function SidebarContent({ className, ...props }: React.ComponentProps<typeof ScrollArea>) {
   return (
-    <div
+    <ScrollArea
       data-slot="sidebar-content"
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col group-data-[collapsible=icon]:overflow-hidden",
         className
       )}
       {...props}
@@ -400,7 +386,7 @@ function SidebarGroupLabel({
   asChild = false,
   ...props
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "div"
+  const Comp = asChild ? Slot.Root : "div"
 
   return (
     <Comp
@@ -421,7 +407,7 @@ function SidebarGroupAction({
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot.Root : "button"
 
   return (
     <Comp
@@ -510,7 +496,7 @@ function SidebarMenuButton({
   isActive?: boolean
   tooltip?: string | React.ComponentProps<typeof TooltipContent>
 } & VariantProps<typeof sidebarMenuButtonVariants>) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot.Root : "button"
   const { isMobile, state } = useSidebar()
 
   const button = (
@@ -556,7 +542,7 @@ function SidebarMenuAction({
   asChild?: boolean
   showOnHover?: boolean
 }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot.Root : "button"
 
   return (
     <Comp
@@ -571,7 +557,7 @@ function SidebarMenuAction({
         "peer-data-[size=lg]/menu-button:top-2.5",
         "group-data-[collapsible=icon]:hidden",
         showOnHover &&
-          "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
+        "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
         className
       )}
       {...props}
@@ -679,7 +665,7 @@ function SidebarMenuSubButton({
   size?: "sm" | "md"
   isActive?: boolean
 }) {
-  const Comp = asChild ? Slot : "a"
+  const Comp = asChild ? Slot.Root : "a"
 
   return (
     <Comp

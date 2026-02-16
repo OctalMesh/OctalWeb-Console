@@ -44,7 +44,7 @@ interface MailProps {
 export function Mail({
   accounts,
   mails,
-  defaultLayout = [20, 32, 48],
+  defaultLayout = [15, 32, 48],
   defaultCollapsed = false,
   navCollapsedSize,
 }: MailProps) {
@@ -54,22 +54,15 @@ export function Mail({
   return (
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
-        direction="horizontal"
-        onLayout={(sizes: number[]) => {
-          document.cookie = `react-resizable-panels:layout:mail=${JSON.stringify(sizes)}`;
-        }}
+        orientation="horizontal"
         className="h-full items-stretch rounded-lg border overflow-hidden"
       >
         <ResizablePanel
           defaultSize={defaultLayout[0]}
           collapsedSize={navCollapsedSize}
           collapsible={true}
-          minSize={15}
-          maxSize={20}
-          onCollapse={() => {
-            setIsCollapsed(true);
-            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(true)}`;
-          }}
+          minSize="15%"
+          maxSize="20%"
           onResize={() => {
             setIsCollapsed(false);
             document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(false)}`;
@@ -78,8 +71,8 @@ export function Mail({
         >
           <div
             className={cn(
-              "flex h-[52px] items-center justify-center",
-              isCollapsed ? "h-[52px]" : "px-2"
+              "flex h-13 items-center justify-center",
+              isCollapsed ? "h-13" : "px-2"
             )}
           >
             <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />

@@ -17,8 +17,8 @@ import {
 import { Link } from "react-router-dom"
 import { Logo } from "@/components/logo"
 
-import { NavMain } from "@/components/nav-main"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/navigation/nav-main"
+import { NavUser } from "@/components/navigation/nav-user"
 import {
   Sidebar,
   SidebarContent,

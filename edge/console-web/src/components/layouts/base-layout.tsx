@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/navigation/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeCustomizer, ThemeCustomizerTrigger } from "@/components/theme-customizer"
 import { useSidebarConfig } from "@/hooks/use-sidebar-config"
