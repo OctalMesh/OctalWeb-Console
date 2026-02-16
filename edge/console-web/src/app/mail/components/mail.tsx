@@ -55,14 +55,18 @@ export function Mail({
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup orientation="horizontal" className="h-full items-stretch rounded-lg border overflow-hidden">
         <ResizablePanel
-          defaultSize={defaultLayout[0]}
-          collapsedSize={navCollapsedSize}
+          defaultSize={defaultLayout[0] + "%"}
+          collapsedSize={navCollapsedSize + "%"}
           collapsible={true}
           minSize="15%"
           maxSize="20%"
-          onResize={() => {
-            setIsCollapsed(false);
-            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(false)}`;
+          onResize={(size) => {
+            const collapsed = size.asPercentage <= navCollapsedSize;
+
+            if (collapsed !== isCollapsed) {
+              setIsCollapsed(collapsed);
+              document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(collapsed)}; path=/`;
+            }
           }}
           className={cn(isCollapsed && "w-full transition-all duration-300 ease-in-out")}
         >
@@ -156,7 +160,7 @@ export function Mail({
           />
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
+        <ResizablePanel defaultSize={defaultLayout[1] + "%"} minSize="30%">
           <Tabs defaultValue="all" className="gap-1">
             <div className="flex items-center px-4 py-1.5">
               <h1 className="text-foreground text-xl font-bold">Inbox</h1>
@@ -170,7 +174,7 @@ export function Mail({
               </TabsList>
             </div>
             <Separator />
-            <div className="bg-background/95 supports-[backdrop-filter]:bg-background/60 p-4 backdrop-blur">
+            <div className="bg-background/95 supports-backdrop-filter:bg-background/60 p-4 backdrop-blur">
               <form>
                 <div className="relative">
                   <Search className="text-muted-foreground absolute top-2.5 left-2 size-4 cursor-pointer" />
@@ -187,7 +191,7 @@ export function Mail({
           </Tabs>
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={defaultLayout[2]} minSize={30}>
+        <ResizablePanel defaultSize={defaultLayout[2] + "%"} minSize="30%">
           <MailDisplay mail={mails.find((item) => item.id === mail.selected) || null} />
         </ResizablePanel>
       </ResizablePanelGroup>

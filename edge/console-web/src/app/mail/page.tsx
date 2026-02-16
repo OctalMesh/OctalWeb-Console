@@ -10,7 +10,7 @@ export default function MailPage() {
           <Mail
             accounts={accounts}
             mails={mails}
-            defaultLayout={[20, 32, 48]}
+            defaultLayout={[15, 32, 48]}
             defaultCollapsed={false}
             navCollapsedSize={4}
           />

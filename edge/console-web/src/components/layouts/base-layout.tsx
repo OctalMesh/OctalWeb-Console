@@ -3,7 +3,7 @@
 import * as React from "react";
 import { AppSidebar } from "@/components/navigation/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
-import { ThemeCustomizer, ThemeCustomizerTrigger } from "@/components/theme-customizer";
+import { ThemeCustomizer } from "@/components/theme-customizer";
 import { useSidebarConfig } from "@/hooks/use-sidebar-config";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
@@ -75,7 +75,6 @@ export function BaseLayout({ children, title, description }: BaseLayoutProps) {
       )}
 
       {/* Theme Customizer */}
-      <ThemeCustomizerTrigger onClick={() => setThemeCustomizerOpen(true)} />
       <ThemeCustomizer open={themeCustomizerOpen} onOpenChange={setThemeCustomizerOpen} />
     </SidebarProvider>
   );
