@@ -1,6 +1,18 @@
 "use client";
 
 import { useState } from "react";
+
+import {
+  addMonths,
+  eachDayOfInterval,
+  endOfMonth,
+  format,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  startOfMonth,
+  subMonths,
+} from "date-fns";
 import {
   Calendar as CalendarIcon,
   ChevronDown,
@@ -15,35 +27,19 @@ import {
   Search,
   Users,
 } from "lucide-react";
-import {
-  addMonths,
-  eachDayOfInterval,
-  endOfMonth,
-  format,
-  isSameDay,
-  isSameMonth,
-  isToday,
-  startOfMonth,
-  subMonths,
-} from "date-fns";
 
-import { Button } from "@/shared/ui/button.tsx";
-import { Card, CardContent } from "@/shared/ui/card.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Avatar, AvatarFallback } from "@/shared/ui/avatar.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/shared/ui/dialog.tsx";
-import { cn } from "@/shared/lib/utils.ts";
-import { type CalendarEvent } from "../types.ts";
+import { cn } from "@shared/lib/utils";
+import { Avatar, AvatarFallback } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent } from "@shared/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@shared/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@shared/ui/dropdown-menu";
+import { Input } from "@shared/ui/input";
 
 // Import data
 import eventsData from "../data/events.json";
+import { type CalendarEvent } from "../types";
 
 interface CalendarMainProps {
   selectedDate?: Date;

@@ -1,4 +1,4 @@
-import { SigninForm } from "./components/signin-form.tsx";
+import { SigninForm } from "./components/signin-form";
 
 export default function LoginPage() {
   return (

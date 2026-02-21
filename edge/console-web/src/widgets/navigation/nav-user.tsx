@@ -3,7 +3,6 @@
 import { BellDot, CircleUser, EllipsisVertical, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { Logo } from "@/shared/ui/logo.tsx";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,8 +11,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/shared/ui/sidebar.tsx";
+} from "@shared/ui/dropdown-menu";
+import { Logo } from "@shared/ui/logo";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@shared/ui/sidebar";
 
 export function NavUser({
   user,

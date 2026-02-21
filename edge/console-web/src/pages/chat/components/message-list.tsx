@@ -1,21 +1,23 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+
 import { format, isToday, isYesterday } from "date-fns";
 import { CheckCheck, Copy, MoreHorizontal, Reply, Trash2 } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { ScrollArea } from "@/shared/ui/scroll-area.tsx";
+import { type Message, type User } from "@pages/chat/use-chat";
+
+import { cn } from "@shared/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@shared/ui/avatar";
+import { Button } from "@shared/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { type Message, type User } from "@/pages/chat/use-chat.ts";
+} from "@shared/ui/dropdown-menu";
+import { ScrollArea } from "@shared/ui/scroll-area";
 
 interface MessageListProps {
   messages: Message[];

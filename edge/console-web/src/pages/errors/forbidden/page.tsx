@@ -1,4 +1,4 @@
-import { ForbiddenError } from "./components/forbidden-error.tsx";
+import { ForbiddenError } from "./components/forbidden-error";
 
 export default function ForbiddenPage() {
   return <ForbiddenError />;

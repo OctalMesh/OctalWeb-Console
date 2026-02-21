@@ -1,18 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
+
 import { FileText, Image as ImageIcon, Mic, MoreHorizontal, Paperclip, Send, Smile } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Button } from "@/shared/ui/button.tsx";
-import { Textarea } from "@/shared/ui/textarea.tsx";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/ui/tooltip.tsx";
+import { cn } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@shared/ui/dropdown-menu";
+import { Textarea } from "@shared/ui/textarea";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@shared/ui/tooltip";
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;

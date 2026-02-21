@@ -2,8 +2,8 @@
 
 import * as React from "react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
+import { cn } from "@shared/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
 
 interface AccountSwitcherProps {
   isCollapsed: boolean;

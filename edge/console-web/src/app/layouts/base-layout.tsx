@@ -1,11 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { AppSidebar } from "@/widgets/sidebar/app-sidebar.tsx";
-import { SiteHeader } from "@/widgets/header/site-header.tsx";
-import { ThemeCustomizer } from "@/features/theme/customizer/theme-customizer.tsx";
-import { useSidebarConfig } from "@/shared/hooks/use-sidebar-config.ts";
-import { SidebarInset, SidebarProvider } from "@/shared/ui/sidebar.tsx";
+
+import { SiteHeader } from "@widgets/header/site-header";
+import { AppSidebar } from "@widgets/sidebar/app-sidebar";
+
+import { ThemeCustomizer } from "@features/theme/customizer/theme-customizer";
+
+import { useSidebarConfig } from "@shared/hooks/use-sidebar-config";
+import { SidebarInset, SidebarProvider } from "@shared/ui/sidebar";
 
 interface BaseLayoutProps {
   children: React.ReactNode;

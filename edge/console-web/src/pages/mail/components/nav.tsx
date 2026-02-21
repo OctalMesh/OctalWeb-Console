@@ -2,10 +2,10 @@
 
 import { type LucideIcon } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { buttonVariants } from "@/shared/ui/button.tsx";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/shared/ui/tooltip.tsx";
+import { cn } from "@shared/lib/utils";
+import { Badge } from "@shared/ui/badge";
+import { buttonVariants } from "@shared/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@shared/ui/tooltip";
 
 interface NavProps {
   isCollapsed: boolean;

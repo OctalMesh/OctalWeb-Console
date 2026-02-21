@@ -2,10 +2,10 @@
 
 import { Bell, Clock, Download, Plus, Settings, Share, Users } from "lucide-react";
 
-import { Button } from "@/shared/ui/button.tsx";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@shared/ui/card";
+import { Separator } from "@shared/ui/separator";
 
 interface QuickActionsProps {
   onNewEvent?: () => void;

@@ -1,11 +1,13 @@
 "use client";
 
 import { type ComponentProps, type ReactNode, type SubmitEventHandler } from "react";
-import { cn } from "@/shared/lib/utils.ts";
-import { Button } from "@/shared/ui/button.tsx";
-import { Card, CardContent } from "@/shared/ui/card.tsx";
-import { Logo } from "@/shared/ui/logo.tsx";
+
 import { Link } from "react-router-dom";
+
+import { cn } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent } from "@shared/ui/card";
+import { Logo } from "@shared/ui/logo";
 
 export interface AuthFormProps extends ComponentProps<"div"> {
   title: string;

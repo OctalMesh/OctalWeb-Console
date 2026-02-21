@@ -1,5 +1,5 @@
-import { Mail } from "@/pages/mail/components/mail.tsx";
-import { accounts, mails } from "@/pages/mail/data.tsx";
+import { Mail } from "@pages/mail/components/mail";
+import { accounts, mails } from "@pages/mail/data";
 
 export default function MailPage() {
   return <Mail accounts={accounts} mails={mails} navCollapsedSize={4} />;

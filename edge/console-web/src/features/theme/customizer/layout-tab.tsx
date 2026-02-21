@@ -1,14 +1,15 @@
 "use client";
 
-import { Label } from "@/shared/ui/label.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { useSidebarConfig } from "@/widgets/sidebar/sidebar-context.tsx";
-import { useSidebar } from "@/shared/ui/sidebar.tsx";
+import { useSidebarConfig } from "@widgets/sidebar/sidebar-context";
+
 import {
   sidebarCollapsibleOptions,
   sidebarSideOptions,
   sidebarVariants,
-} from "@/shared/config/theme-customizer-constants.ts";
+} from "@shared/config/theme-customizer-constants";
+import { Label } from "@shared/ui/label";
+import { Separator } from "@shared/ui/separator";
+import { useSidebar } from "@shared/ui/sidebar";
 
 export function LayoutTab() {
   const { config: sidebarConfig, updateConfig: updateSidebarConfig } = useSidebarConfig();

@@ -1,5 +1,6 @@
 import * as React from "react";
-import { SidebarContext, type SidebarContextValue } from "@/widgets/sidebar/sidebar-context.tsx";
+
+import { SidebarContext, type SidebarContextValue } from "@widgets/sidebar/sidebar-context";
 
 export function useSidebarConfig(): SidebarContextValue {
   const context = React.useContext(SidebarContext);

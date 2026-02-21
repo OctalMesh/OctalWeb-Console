@@ -1,12 +1,12 @@
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { ChartAreaInteractive } from "./components/chart-area-interactive.tsx";
-import { DataTable } from "./components/data-table.tsx";
-import { SectionCards } from "./components/section-cards.tsx";
+import { BaseLayout } from "@app/layouts/base-layout";
 
+import { ChartAreaInteractive } from "./components/chart-area-interactive";
+import { DataTable } from "./components/data-table";
+import { SectionCards } from "./components/section-cards";
 import data from "./data/data.json";
-import pastPerformanceData from "./data/past-performance-data.json";
-import keyPersonnelData from "./data/key-personnel-data.json";
 import focusDocumentsData from "./data/focus-documents-data.json";
+import keyPersonnelData from "./data/key-personnel-data.json";
+import pastPerformanceData from "./data/past-performance-data.json";
 
 export default function Page() {
   return (

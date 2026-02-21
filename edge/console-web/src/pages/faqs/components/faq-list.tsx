@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { ScrollArea } from "@/shared/ui/scroll-area.tsx";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/ui/accordion.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+
 import { Search } from "lucide-react";
+
+import { cn } from "@shared/lib/utils";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@shared/ui/accordion";
+import { Badge } from "@shared/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@shared/ui/card";
+import { Input } from "@shared/ui/input";
+import { ScrollArea } from "@shared/ui/scroll-area";
 
 interface FAQ {
   id: number;

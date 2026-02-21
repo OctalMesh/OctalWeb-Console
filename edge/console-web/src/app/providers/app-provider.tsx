@@ -1,7 +1,10 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { ThemeProvider } from "@/app/providers/theme/theme-provider.tsx";
-import { SidebarConfigProvider } from "@/widgets/sidebar/sidebar-context.tsx";
 import React from "react";
+
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { ThemeProvider } from "@app/providers/theme/theme-provider";
+
+import { SidebarConfigProvider } from "@widgets/sidebar/sidebar-context";
 
 const basename = import.meta.env.VITE_BASENAME || "";
 

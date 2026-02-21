@@ -1,10 +1,11 @@
 "use client";
 
 import { Eye, Star, TrendingUp } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Progress } from "@/shared/ui/progress.tsx";
+
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Progress } from "@shared/ui/progress";
 
 const products = [
   {

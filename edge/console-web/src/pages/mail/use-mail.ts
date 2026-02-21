@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import type { Mail } from "@/pages/mail/data.tsx";
-import { mails } from "@/pages/mail/data.tsx";
+
+import type { Mail } from "@pages/mail/data";
+import { mails } from "@pages/mail/data";
 
 interface Config {
   selected: Mail["id"] | null;

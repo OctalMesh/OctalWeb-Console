@@ -1,6 +1,6 @@
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { FAQList } from "./components/faq-list.tsx";
+import { BaseLayout } from "@app/layouts/base-layout";
 
+import { FAQList } from "./components/faq-list";
 // Import data
 import categoriesData from "./data/categories.json";
 import faqsData from "./data/faqs.json";

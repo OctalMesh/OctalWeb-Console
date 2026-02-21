@@ -1,15 +1,19 @@
 "use client";
 
 import React from "react";
+
 import { Layout, Palette, RotateCcw, Settings, X } from "lucide-react";
-import { Button } from "@/shared/ui/button.tsx";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/shared/ui/sheet.tsx";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs.tsx";
-import { useThemeManager } from "@/shared/hooks/use-theme-manager.ts";
-import { useSidebarConfig } from "@/widgets/sidebar/sidebar-context.tsx";
-import { ThemeTab } from "./theme-tab.tsx";
-import { LayoutTab } from "./layout-tab.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+
+import { useSidebarConfig } from "@widgets/sidebar/sidebar-context";
+
+import { useThemeManager } from "@shared/hooks/use-theme-manager";
+import { cn } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@shared/ui/sheet";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shared/ui/tabs";
+
+import { LayoutTab } from "./layout-tab";
+import { ThemeTab } from "./theme-tab";
 
 interface ThemeCustomizerProps {
   open: boolean;

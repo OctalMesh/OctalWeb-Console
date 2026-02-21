@@ -2,10 +2,11 @@
 
 import { Plus } from "lucide-react";
 
-import { Calendars } from "./calendars.tsx";
-import { DatePicker } from "./date-picker.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
+import { Button } from "@shared/ui/button";
+import { Separator } from "@shared/ui/separator";
+
+import { Calendars } from "./calendars";
+import { DatePicker } from "./date-picker";
 
 interface CalendarSidebarProps {
   selectedDate?: Date;

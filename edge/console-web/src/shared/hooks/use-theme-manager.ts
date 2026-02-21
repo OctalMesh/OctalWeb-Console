@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { useTheme } from "@/shared/hooks/use-theme.ts";
-import { baseColors } from "@/shared/config/theme-customizer-constants.ts";
-import { colorThemes } from "@/shared/config/theme-data.ts";
+
+import { baseColors } from "@shared/config/theme-customizer-constants";
+import { colorThemes } from "@shared/config/theme-data";
+import { useTheme } from "@shared/hooks/use-theme";
 
 export function useThemeManager() {
   const { theme, setTheme } = useTheme();

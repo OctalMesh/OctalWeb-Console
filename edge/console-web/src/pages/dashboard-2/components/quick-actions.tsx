@@ -1,14 +1,15 @@
 "use client";
 
 import { Download, FileText, Plus, Settings } from "lucide-react";
-import { Button } from "@/shared/ui/button.tsx";
+
+import { Button } from "@shared/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
+} from "@shared/ui/dropdown-menu";
 
 export function QuickActions() {
   return (

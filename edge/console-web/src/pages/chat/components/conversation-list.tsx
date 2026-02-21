@@ -3,20 +3,21 @@
 import { format, isThisWeek, isThisYear, isToday, isYesterday } from "date-fns";
 import { Filter, Hash, MoreVertical, Pin, Search, Settings, UserPlus, Users, VolumeX } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { ScrollArea } from "@/shared/ui/scroll-area.tsx";
+import { type Conversation, useChat } from "@pages/chat/use-chat";
+
+import { cn } from "@shared/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { type Conversation, useChat } from "@/pages/chat/use-chat.ts";
+} from "@shared/ui/dropdown-menu";
+import { Input } from "@shared/ui/input";
+import { ScrollArea } from "@shared/ui/scroll-area";
 
 interface ConversationListProps {
   conversations: Conversation[];

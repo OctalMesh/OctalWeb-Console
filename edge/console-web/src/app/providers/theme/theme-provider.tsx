@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { ThemeProviderContext } from "@/app/providers/theme/theme-context.ts";
+
+import { ThemeProviderContext } from "@app/providers/theme/theme-context";
 
 type Theme = "dark" | "light" | "system";
 

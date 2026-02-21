@@ -1,24 +1,21 @@
 "use client";
 
+import { useState } from "react";
+
 import { addDays, addHours, format, nextSaturday } from "date-fns";
 import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from "lucide-react";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Calendar } from "@/shared/ui/calendar.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Popover, PopoverContent, PopoverTrigger } from "@/shared/ui/popover.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Switch } from "@/shared/ui/switch.tsx";
-import { Textarea } from "@/shared/ui/textarea.tsx";
-import { type Mail } from "@/pages/mail/data.tsx";
-import { useState } from "react";
+import { type Mail } from "@pages/mail/data";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@shared/ui/avatar";
+import { Button } from "@shared/ui/button";
+import { Calendar } from "@shared/ui/calendar";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@shared/ui/dropdown-menu";
+import { Label } from "@shared/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@shared/ui/popover";
+import { Separator } from "@shared/ui/separator";
+import { Switch } from "@shared/ui/switch";
+import { Textarea } from "@shared/ui/textarea";
 
 interface MailDisplayProps {
   mail: Mail | null;

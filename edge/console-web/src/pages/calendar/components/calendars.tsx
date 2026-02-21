@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
+
 import { Check, ChevronRight, Eye, EyeOff, MoreHorizontal, Plus } from "lucide-react";
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/shared/ui/collapsible.tsx";
+import { cn } from "@shared/lib/utils";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@shared/ui/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+} from "@shared/ui/dropdown-menu";
 
 interface CalendarItem {
   id: string;

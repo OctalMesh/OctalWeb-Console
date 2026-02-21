@@ -1,13 +1,15 @@
 "use client";
 
 import type { ComponentProps } from "react";
+
 import { formatDistanceToNow } from "date-fns";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { ScrollArea } from "@/shared/ui/scroll-area.tsx";
-import type { Mail } from "@/pages/mail/data.tsx";
-import { useMail } from "@/pages/mail/use-mail.ts";
+import type { Mail } from "@pages/mail/data";
+import { useMail } from "@pages/mail/use-mail";
+
+import { cn } from "@shared/lib/utils";
+import { Badge } from "@shared/ui/badge";
+import { ScrollArea } from "@shared/ui/scroll-area";
 
 interface MailListProps {
   items: Mail[];

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import type { Label as LabelPrimitive } from "radix-ui";
 import { Slot } from "radix-ui";
 import {
@@ -11,8 +12,8 @@ import {
   useFormState,
 } from "react-hook-form";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Label } from "@/shared/ui/label.tsx";
+import { cn } from "@shared/lib/utils";
+import { Label } from "@shared/ui/label";
 
 const Form = FormProvider;
 

@@ -1,6 +1,18 @@
 "use client";
 
 import { useState } from "react";
+
+import {
+  addMonths,
+  eachDayOfInterval,
+  endOfMonth,
+  format,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  startOfMonth,
+  subMonths,
+} from "date-fns";
 import {
   Calendar as CalendarIcon,
   ChevronDown,
@@ -15,36 +27,20 @@ import {
   Search,
   Users,
 } from "lucide-react";
-import {
-  addMonths,
-  eachDayOfInterval,
-  endOfMonth,
-  format,
-  isSameDay,
-  isSameMonth,
-  isToday,
-  startOfMonth,
-  subMonths,
-} from "date-fns";
 
-import { Button } from "@/shared/ui/button.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Avatar, AvatarFallback } from "@/shared/ui/avatar.tsx";
-import { Calendar } from "@/shared/ui/calendar.tsx";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/shared/ui/sheet.tsx";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/shared/ui/dialog.tsx";
-import { cn } from "@/shared/lib/utils.ts";
-import { type CalendarEvent } from "../types.ts";
+import { cn } from "@shared/lib/utils";
+import { Avatar, AvatarFallback } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Calendar } from "@shared/ui/calendar";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@shared/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@shared/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@shared/ui/sheet";
 
+import calendarsData from "../data/calendars.json";
 // Import data
 import eventsData from "../data/events.json";
-import calendarsData from "../data/calendars.json";
+import { type CalendarEvent } from "../types";
 
 interface CalendarMainProps {
   eventDates?: Array<{ date: Date; count: number }>;

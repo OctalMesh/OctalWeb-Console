@@ -1,20 +1,36 @@
 "use client";
 
 import * as React from "react";
+
 import {
-  closestCenter,
   DndContext,
   type DragEndEvent,
   KeyboardSensor,
   MouseSensor,
   TouchSensor,
   type UniqueIdentifier,
+  closestCenter,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { SortableContext, arrayMove, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import {
+  type ColumnDef,
+  type ColumnFiltersState,
+  type Row,
+  type SortingState,
+  type VisibilityState,
+  flexRender,
+  getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 import {
   ChevronDown,
   ChevronLeft,
@@ -29,31 +45,15 @@ import {
   Plus,
   TrendingUp,
 } from "lucide-react";
-import {
-  type ColumnDef,
-  type ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  type Row,
-  type SortingState,
-  useReactTable,
-  type VisibilityState,
-} from "@tanstack/react-table";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { schema } from "../schemas/task-schema.ts";
-import { useIsMobile } from "@/shared/hooks/use-mobile.ts";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/shared/ui/chart.tsx";
-import { Checkbox } from "@/shared/ui/checkbox.tsx";
+import { useIsMobile } from "@shared/hooks/use-mobile";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@shared/ui/chart";
+import { Checkbox } from "@shared/ui/checkbox";
 import {
   Drawer,
   DrawerClose,
@@ -63,7 +63,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/shared/ui/drawer.tsx";
+} from "@shared/ui/drawer";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -71,13 +71,15 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/table.tsx";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs.tsx";
+} from "@shared/ui/dropdown-menu";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Separator } from "@shared/ui/separator";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@shared/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shared/ui/tabs";
+
+import { schema } from "../schemas/task-schema";
 
 // Create a separate component for the drag handle
 function DragHandle({ id }: { id: number }) {

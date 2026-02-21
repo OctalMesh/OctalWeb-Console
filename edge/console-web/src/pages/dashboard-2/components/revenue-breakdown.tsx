@@ -1,12 +1,14 @@
 "use client";
 
 import * as React from "react";
+
 import { Label, Pie, PieChart, Sector } from "recharts";
 import type { PieSectorDataItem } from "recharts/types/polar/Pie";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { ChartContainer, ChartStyle, ChartTooltip, ChartTooltipContent } from "@/shared/ui/chart.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Button } from "@/shared/ui/button.tsx";
+
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { ChartContainer, ChartStyle, ChartTooltip, ChartTooltipContent } from "@shared/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
 
 const revenueData = [
   { category: "subscriptions", value: 45, amount: 24500, fill: "var(--color-subscriptions)" },

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+
 import { Calendar, Clock, Filter, RefreshCw } from "lucide-react";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
+
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Card, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Separator } from "@shared/ui/separator";
 
 export function DashboardHeader() {
   const [dateRange, setDateRange] = useState("30d");

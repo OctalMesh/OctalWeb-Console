@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Chat } from "./components/chat.tsx";
-import { type Conversation, type Message, type User } from "./use-chat.ts";
+import { BaseLayout } from "@app/layouts/base-layout";
 
+import { Chat } from "./components/chat";
 // Import static data
 import conversationsData from "./data/conversations.json";
 import messagesData from "./data/messages.json";
 import usersData from "./data/users.json";
+import { type Conversation, type Message, type User } from "./use-chat";
 
 export default function ChatPage() {
   const [conversations, setConversations] = useState<Conversation[]>([]);

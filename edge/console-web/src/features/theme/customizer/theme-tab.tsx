@@ -1,15 +1,18 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { Button } from "@/shared/ui/button.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { useThemeManager } from "@/shared/hooks/use-theme-manager.ts";
-import { useCircularTransition } from "@/shared/hooks/use-circular-transition.ts";
-import { colorThemes } from "@/shared/config/theme-data.ts";
-import { radiusOptions } from "@/shared/config/theme-customizer-constants.ts";
 import React from "react";
+
+import { Moon, Sun } from "lucide-react";
+
+import { radiusOptions } from "@shared/config/theme-customizer-constants";
+import { colorThemes } from "@shared/config/theme-data";
+import { useCircularTransition } from "@shared/hooks/use-circular-transition";
+import { useThemeManager } from "@shared/hooks/use-theme-manager";
+import { Button } from "@shared/ui/button";
+import { Label } from "@shared/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Separator } from "@shared/ui/separator";
+
 import "./circular-transition.css";
 
 interface ThemeTabProps {

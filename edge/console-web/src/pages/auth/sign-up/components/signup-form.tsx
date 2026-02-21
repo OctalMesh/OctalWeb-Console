@@ -1,12 +1,15 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { AuthForm } from "@/pages/auth/components/auth-form.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Checkbox } from "@/shared/ui/checkbox.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+
 import { Link } from "react-router-dom";
+
+import { AuthForm } from "@pages/auth/components/auth-form";
+
+import { cn } from "@shared/lib/utils";
+import { Checkbox } from "@shared/ui/checkbox";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
 
 export function SignupForm({ className, ...props }: ComponentProps<"div">) {
   return (

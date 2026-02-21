@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
+
 import { Command as CommandPrimitive } from "cmdk";
 import {
   Bell,
@@ -19,9 +19,10 @@ import {
   Settings,
   User,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-import { Dialog, DialogContent, DialogTitle } from "@/shared/ui/dialog.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+import { cn } from "@shared/lib/utils";
+import { Dialog, DialogContent, DialogTitle } from "@shared/ui/dialog";
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,

@@ -1,20 +1,23 @@
 "use client";
 
+import { useRef, useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Upload } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form.tsx";
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Textarea } from "@/shared/ui/textarea.tsx";
-import { Upload } from "lucide-react";
-import { useRef, useState } from "react";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Logo } from "@/shared/ui/logo.tsx";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@shared/ui/avatar";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/ui/form";
+import { Input } from "@shared/ui/input";
+import { Logo } from "@shared/ui/logo";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Separator } from "@shared/ui/separator";
+import { Textarea } from "@shared/ui/textarea";
 
 const userFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),

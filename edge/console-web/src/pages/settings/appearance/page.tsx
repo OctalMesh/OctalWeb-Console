@@ -3,11 +3,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form.tsx";
-import { RadioGroup, RadioGroupItem } from "@/shared/ui/radio-group.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Button } from "@shared/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/ui/form";
+import { RadioGroup, RadioGroupItem } from "@shared/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark"]),

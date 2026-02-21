@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import { useTheme } from "@/shared/hooks/use-theme.ts";
+
+import { useTheme } from "@shared/hooks/use-theme";
 
 interface CircularTransitionHook {
   startTransition: (coords: { x: number; y: number }, callback: () => void) => void;

@@ -1,11 +1,14 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { AuthForm } from "@/pages/auth/components/auth-form.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+
 import { Link } from "react-router-dom";
+
+import { AuthForm } from "@pages/auth/components/auth-form";
+
+import { cn } from "@shared/lib/utils";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
 
 export function ForgotPasswordForm({ className, ...props }: ComponentProps<"div">) {
   return (

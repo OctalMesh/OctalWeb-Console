@@ -1,17 +1,19 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Bell, Mail, MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form.tsx";
-import { Checkbox } from "@/shared/ui/checkbox.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/table.tsx";
-import { Bell, Mail, MessageSquare } from "lucide-react";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Checkbox } from "@shared/ui/checkbox";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Separator } from "@shared/ui/separator";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@shared/ui/table";
 
 const notificationsFormSchema = z.object({
   emailSecurity: z.boolean(),

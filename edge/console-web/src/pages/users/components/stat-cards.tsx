@@ -1,7 +1,8 @@
-import { Card, CardContent } from "@/shared/ui/card.tsx";
 import { ArrowUpRight, Clock5, CreditCard, TrendingDown, TrendingUp, UserCheck, Users } from "lucide-react";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+
+import { cn } from "@shared/lib/utils";
+import { Badge } from "@shared/ui/badge";
+import { Card, CardContent } from "@shared/ui/card";
 
 const performanceMetrics = [
   {

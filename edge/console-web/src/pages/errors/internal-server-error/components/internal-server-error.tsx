@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@/shared/ui/button.tsx";
 import { useNavigate } from "react-router-dom";
+
+import { Button } from "@shared/ui/button";
 
 export function InternalServerError() {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
-import { Mail } from "@/pages/mail/components/mail.tsx";
-import { accounts, mails } from "@/pages/mail/data.tsx";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Mail } from "@pages/mail/components/mail";
+import { accounts, mails } from "@pages/mail/data";
 
 export default function MailPage() {
   return (

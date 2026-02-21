@@ -1,11 +1,12 @@
 "use client";
 
-import { CalendarSidebar } from "./calendar-sidebar.tsx";
-import { CalendarMain } from "./calendar-main.tsx";
-import { EventForm } from "./event-form.tsx";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/shared/ui/sheet.tsx";
-import { type CalendarEvent } from "../types.ts";
-import { useCalendar } from "../use-calendar.ts";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@shared/ui/sheet";
+
+import { type CalendarEvent } from "../types";
+import { useCalendar } from "../use-calendar";
+import { CalendarMain } from "./calendar-main";
+import { CalendarSidebar } from "./calendar-sidebar";
+import { EventForm } from "./event-form";
 
 interface CalendarProps {
   events: CalendarEvent[];

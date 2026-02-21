@@ -3,14 +3,15 @@
 import type { Table } from "@tanstack/react-table";
 import { RefreshCcw } from "lucide-react";
 
-import { Button } from "@/shared/ui/button.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { DataTableViewOptions } from "@/pages/tasks/components/data-table-view-options.tsx";
-import { AddTaskModal } from "./add-task-modal.tsx";
+import { DataTableViewOptions } from "@pages/tasks/components/data-table-view-options";
 
-import { categories, priorities, statuses } from "../data/data.tsx";
-import type { Task } from "../data/schema.ts";
+import { Button } from "@shared/ui/button";
+import { Input } from "@shared/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+
+import { categories, priorities, statuses } from "../data/data";
+import type { Task } from "../data/schema";
+import { AddTaskModal } from "./add-task-modal";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;

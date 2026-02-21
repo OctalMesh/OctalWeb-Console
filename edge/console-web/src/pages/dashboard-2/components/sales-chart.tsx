@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/shared/ui/chart.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Button } from "@/shared/ui/button.tsx";
+
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@shared/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
 
 const salesData = [
   { month: "Jan", sales: 12500, target: 15000 },

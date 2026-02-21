@@ -3,12 +3,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/ui/form.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/ui/form";
+import { Input } from "@shared/ui/input";
+import { Separator } from "@shared/ui/separator";
 
 const accountFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),

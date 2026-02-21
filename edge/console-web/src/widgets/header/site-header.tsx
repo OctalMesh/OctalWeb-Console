@@ -1,10 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { SidebarTrigger } from "@/shared/ui/sidebar.tsx";
-import { CommandSearch, SearchTrigger } from "@/widgets/header/command-search.tsx";
-import { ModeToggle } from "@/features/theme/toggle/mode-toggle.tsx";
+
+import { CommandSearch, SearchTrigger } from "@widgets/header/command-search";
+
+import { ModeToggle } from "@features/theme/toggle/mode-toggle";
+
+import { Separator } from "@shared/ui/separator";
+import { SidebarTrigger } from "@shared/ui/sidebar";
 
 export function SiteHeader() {
   const [searchOpen, setSearchOpen] = React.useState(false);

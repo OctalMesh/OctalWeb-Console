@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { type CalendarEvent } from "./types.ts";
+
+import { type CalendarEvent } from "./types";
 
 export interface UseCalendarState {
   selectedDate: Date;

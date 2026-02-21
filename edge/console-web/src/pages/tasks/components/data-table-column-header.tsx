@@ -3,8 +3,8 @@
 import type { Column } from "@tanstack/react-table";
 import { ArrowDown, ArrowUp, ChevronsUpDown } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Button } from "@/shared/ui/button.tsx";
+import { cn } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
 
 interface DataTableColumnHeaderProps<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;

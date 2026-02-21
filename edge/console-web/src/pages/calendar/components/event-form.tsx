@@ -1,22 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, Clock, MapPin, Tag, Type, Users } from "lucide-react";
-import { format } from "date-fns";
 
-import { Button } from "@/shared/ui/button.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Textarea } from "@/shared/ui/textarea.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/shared/ui/dialog.tsx";
-import { Popover, PopoverContent, PopoverTrigger } from "@/shared/ui/popover.tsx";
-import { Calendar } from "@/shared/ui/calendar.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Switch } from "@/shared/ui/switch.tsx";
-import { Avatar, AvatarFallback } from "@/shared/ui/avatar.tsx";
-import { cn } from "@/shared/lib/utils.ts";
-import { type CalendarEvent } from "../types.ts";
+import { format } from "date-fns";
+import { CalendarIcon, Clock, MapPin, Tag, Type, Users } from "lucide-react";
+
+import { cn } from "@shared/lib/utils";
+import { Avatar, AvatarFallback } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Calendar } from "@shared/ui/calendar";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@shared/ui/dialog";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@shared/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Switch } from "@shared/ui/switch";
+import { Textarea } from "@shared/ui/textarea";
+
+import { type CalendarEvent } from "../types";
 
 interface EventFormProps {
   event?: CalendarEvent | null;

@@ -2,18 +2,19 @@
 
 import { Bell, BellOff, Info, MoreVertical, Phone, Search, Users, Video } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
+import { type Conversation, type User } from "@pages/chat/use-chat";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/shared/ui/tooltip.tsx";
-import { type Conversation, type User } from "@/pages/chat/use-chat.ts";
+} from "@shared/ui/dropdown-menu";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@shared/ui/tooltip";
 
 interface ChatHeaderProps {
   conversation: Conversation | null;

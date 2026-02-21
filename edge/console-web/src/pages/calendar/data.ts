@@ -1,9 +1,8 @@
-import { type Calendar, type CalendarEvent } from "./types.ts";
-
+import calendarsData from "./data/calendars.json";
+import eventDatesData from "./data/event-dates.json";
 // Import JSON data
 import eventsData from "./data/events.json";
-import eventDatesData from "./data/event-dates.json";
-import calendarsData from "./data/calendars.json";
+import { type Calendar, type CalendarEvent } from "./types";
 
 // Convert JSON events to CalendarEvent objects with proper Date objects
 // Always use current month and year, but preserve day and time from JSON

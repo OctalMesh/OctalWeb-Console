@@ -1,8 +1,9 @@
 "use client";
 
 import { BarChart3, DollarSign, ShoppingCart, TrendingDown, TrendingUp, Users } from "lucide-react";
-import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
+
+import { Badge } from "@shared/ui/badge";
+import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@shared/ui/card";
 
 const metrics = [
   {

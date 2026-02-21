@@ -1,25 +1,26 @@
 "use client";
 
 import { useState } from "react";
+
 import {
   type ColumnDef,
   type ColumnFiltersState,
+  type Row,
+  type SortingState,
+  type VisibilityState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  type Row,
-  type SortingState,
   useReactTable,
-  type VisibilityState,
 } from "@tanstack/react-table";
 import { ChevronDown, Download, EllipsisVertical, Eye, Pencil, Search, Trash2 } from "lucide-react";
 
-import { Avatar, AvatarFallback } from "@/shared/ui/avatar.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Checkbox } from "@/shared/ui/checkbox.tsx";
+import { Avatar, AvatarFallback } from "@shared/ui/avatar";
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Checkbox } from "@shared/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -27,12 +28,13 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui/dropdown-menu.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/table.tsx";
-import { UserFormDialog } from "./user-form-dialog.tsx";
+} from "@shared/ui/dropdown-menu";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@shared/ui/table";
+
+import { UserFormDialog } from "./user-form-dialog";
 
 interface User {
   id: number;

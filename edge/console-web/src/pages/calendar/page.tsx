@@ -1,6 +1,7 @@
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Calendar } from "./components/calendar.tsx";
-import { eventDates, events } from "./data.ts";
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Calendar } from "./components/calendar";
+import { eventDates, events } from "./data";
 
 export default function CalendarPage() {
   return (

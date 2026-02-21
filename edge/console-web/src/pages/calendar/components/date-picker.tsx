@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar } from "@/shared/ui/calendar.tsx";
+
+import { Calendar } from "@shared/ui/calendar";
 
 interface DatePickerProps {
   selectedDate?: Date;

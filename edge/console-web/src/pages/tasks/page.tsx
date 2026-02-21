@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { z } from "zod";
-import { ArrowUp, BarChart3, CheckCircle2, Clock, ListTodo } from "lucide-react";
 
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { columns } from "./components/columns.tsx";
-import { DataTable } from "./components/data-table.tsx";
-import { type Task, taskSchema } from "./data/schema.ts";
+import { ArrowUp, BarChart3, CheckCircle2, Clock, ListTodo } from "lucide-react";
+import { z } from "zod";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+
+import { columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
+import { type Task, taskSchema } from "./data/schema";
 import tasksData from "./data/tasks.json";
 
 // Use static import for tasks data (works in both Vite and Next.js)

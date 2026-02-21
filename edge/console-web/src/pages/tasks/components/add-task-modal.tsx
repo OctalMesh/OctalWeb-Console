@@ -1,25 +1,19 @@
 "use client";
 
 import { useState } from "react";
+
 import { Plus } from "lucide-react";
 import { z } from "zod";
 
-import { Button } from "@/shared/ui/button.tsx";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/shared/ui/dialog.tsx";
-import { Input } from "@/shared/ui/input.tsx";
-import { Label } from "@/shared/ui/label.tsx";
-import { Textarea } from "@/shared/ui/textarea.tsx";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select.tsx";
+import { Button } from "@shared/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@shared/ui/dialog";
+import { Input } from "@shared/ui/input";
+import { Label } from "@shared/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@shared/ui/select";
+import { Textarea } from "@shared/ui/textarea";
 
-import { categories, priorities, statuses } from "../data/data.tsx";
-import type { Task } from "../data/schema.ts";
+import { categories, priorities, statuses } from "../data/data";
+import type { Task } from "../data/schema";
 
 // Extended task schema for the form
 const taskFormSchema = z.object({

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+
 import {
   AlertTriangle,
   Calendar,
@@ -15,10 +16,11 @@ import {
   Users,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Logo } from "@/shared/ui/logo.tsx";
 
-import { NavMain } from "@/widgets/navigation/nav-main.tsx";
-import { NavUser } from "@/widgets/navigation/nav-user.tsx";
+import { NavMain } from "@widgets/navigation/nav-main";
+import { NavUser } from "@widgets/navigation/nav-user";
+
+import { Logo } from "@shared/ui/logo";
 import {
   Sidebar,
   SidebarContent,
@@ -27,7 +29,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/shared/ui/sidebar.tsx";
+} from "@shared/ui/sidebar";
 
 const data = {
   user: {

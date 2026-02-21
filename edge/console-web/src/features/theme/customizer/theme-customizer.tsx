@@ -1,2 +1,2 @@
 // Re-export the main components from the modular structure
-export { ThemeCustomizer, ThemeCustomizerTrigger } from "./main.tsx";
+export { ThemeCustomizer, ThemeCustomizerTrigger } from "./main";

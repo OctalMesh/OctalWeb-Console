@@ -2,14 +2,14 @@
 
 import type { ColumnDef } from "@tanstack/react-table";
 
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Checkbox } from "@/shared/ui/checkbox.tsx";
-import { cn } from "@/shared/lib/utils.ts";
+import { cn } from "@shared/lib/utils";
+import { Badge } from "@shared/ui/badge";
+import { Checkbox } from "@shared/ui/checkbox";
 
-import { categories, priorities, statuses } from "../data/data.tsx";
-import type { Task } from "../data/schema.ts";
-import { DataTableColumnHeader } from "./data-table-column-header.tsx";
-import { DataTableRowActions } from "./data-table-row-actions.tsx";
+import { categories, priorities, statuses } from "../data/data";
+import type { Task } from "../data/schema";
+import { DataTableColumnHeader } from "./data-table-column-header";
+import { DataTableRowActions } from "./data-table-row-actions";
 
 export const columns: ColumnDef<Task>[] = [
   {

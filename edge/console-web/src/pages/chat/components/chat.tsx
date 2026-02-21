@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import { Menu, X } from "lucide-react";
 
-import { TooltipProvider } from "@/shared/ui/tooltip.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { ConversationList } from "./conversation-list.tsx";
-import { ChatHeader } from "./chat-header.tsx";
-import { MessageList } from "./message-list.tsx";
-import { MessageInput } from "./message-input.tsx";
-import { type Conversation, type Message, useChat, type User } from "@/pages/chat/use-chat.ts";
+import { type Conversation, type Message, type User, useChat } from "@pages/chat/use-chat";
+
+import { Button } from "@shared/ui/button";
+import { TooltipProvider } from "@shared/ui/tooltip";
+
+import { ChatHeader } from "./chat-header";
+import { ConversationList } from "./conversation-list";
+import { MessageInput } from "./message-input";
+import { MessageList } from "./message-list";
 
 interface ChatProps {
   conversations: Conversation[];

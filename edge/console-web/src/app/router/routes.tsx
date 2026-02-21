@@ -1,33 +1,35 @@
-import { type ComponentType, lazy, Suspense } from "react";
+import { type ComponentType, Suspense, lazy } from "react";
+
 import { Navigate, Outlet, type RouteObject, useRoutes } from "react-router-dom";
-import { LoadingSpinner } from "@/shared/ui/loading-spinner.tsx";
+
+import { LoadingSpinner } from "@shared/ui/loading-spinner";
 
 // <editor-fold desc="Page Components (Lazy Loaded)">
-const Dashboard = Loadable(lazy(() => import("@/pages/dashboard/page.tsx")));
-const Dashboard2 = Loadable(lazy(() => import("@/pages/dashboard-2/page.tsx")));
+const Dashboard = Loadable(lazy(() => import("@pages/dashboard/page")));
+const Dashboard2 = Loadable(lazy(() => import("@pages/dashboard-2/page")));
 
-const Mail = Loadable(lazy(() => import("@/pages/mail/page.tsx")));
-const Tasks = Loadable(lazy(() => import("@/pages/tasks/page.tsx")));
-const Chat = Loadable(lazy(() => import("@/pages/chat/page.tsx")));
-const Calendar = Loadable(lazy(() => import("@/pages/calendar/page.tsx")));
-const Users = Loadable(lazy(() => import("@/pages/users/page.tsx")));
-const FAQs = Loadable(lazy(() => import("@/pages/faqs/page.tsx")));
+const Mail = Loadable(lazy(() => import("@pages/mail/page")));
+const Tasks = Loadable(lazy(() => import("@pages/tasks/page")));
+const Chat = Loadable(lazy(() => import("@pages/chat/page")));
+const Calendar = Loadable(lazy(() => import("@pages/calendar/page")));
+const Users = Loadable(lazy(() => import("@pages/users/page")));
+const FAQs = Loadable(lazy(() => import("@pages/faqs/page")));
 
-const UserSettings = Loadable(lazy(() => import("@/pages/settings/user/page.tsx")));
-const AccountSettings = Loadable(lazy(() => import("@/pages/settings/account/page.tsx")));
-const AppearanceSettings = Loadable(lazy(() => import("@/pages/settings/appearance/page.tsx")));
-const NotificationSettings = Loadable(lazy(() => import("@/pages/settings/notifications/page.tsx")));
-const ConnectionSettings = Loadable(lazy(() => import("@/pages/settings/connections/page.tsx")));
+const UserSettings = Loadable(lazy(() => import("@pages/settings/user/page")));
+const AccountSettings = Loadable(lazy(() => import("@pages/settings/account/page")));
+const AppearanceSettings = Loadable(lazy(() => import("@pages/settings/appearance/page")));
+const NotificationSettings = Loadable(lazy(() => import("@pages/settings/notifications/page")));
+const ConnectionSettings = Loadable(lazy(() => import("@pages/settings/connections/page")));
 
-const SignIn = Loadable(lazy(() => import("@/pages/auth/sign-in/page.tsx")));
-const SignUp = Loadable(lazy(() => import("@/pages/auth/sign-up/page.tsx")));
-const ForgotPassword = Loadable(lazy(() => import("@/pages/auth/forgot-password/page.tsx")));
+const SignIn = Loadable(lazy(() => import("@pages/auth/sign-in/page")));
+const SignUp = Loadable(lazy(() => import("@pages/auth/sign-up/page")));
+const ForgotPassword = Loadable(lazy(() => import("@pages/auth/forgot-password/page")));
 
-const NotFound = Loadable(lazy(() => import("@/pages/errors/not-found/page.tsx")));
-const Unauthorized = Loadable(lazy(() => import("@/pages/errors/unauthorized/page.tsx")));
-const Forbidden = Loadable(lazy(() => import("@/pages/errors/forbidden/page.tsx")));
-const InternalError = Loadable(lazy(() => import("@/pages/errors/internal-server-error/page.tsx")));
-const Maintenance = Loadable(lazy(() => import("@/pages/errors/under-maintenance/page.tsx")));
+const NotFound = Loadable(lazy(() => import("@pages/errors/not-found/page")));
+const Unauthorized = Loadable(lazy(() => import("@pages/errors/unauthorized/page")));
+const Forbidden = Loadable(lazy(() => import("@pages/errors/forbidden/page")));
+const InternalError = Loadable(lazy(() => import("@pages/errors/internal-server-error/page")));
+const Maintenance = Loadable(lazy(() => import("@pages/errors/under-maintenance/page")));
 
 // </editor-fold>
 

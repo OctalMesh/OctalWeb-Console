@@ -1,9 +1,5 @@
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
-import { Button } from "@/shared/ui/button.tsx";
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Switch } from "@/shared/ui/switch.tsx";
+import { useState } from "react";
+
 import {
   Apple,
   Chrome,
@@ -17,7 +13,14 @@ import {
   Twitter,
   Zap,
 } from "lucide-react";
-import { useState } from "react";
+
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { Badge } from "@shared/ui/badge";
+import { Button } from "@shared/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card";
+import { Separator } from "@shared/ui/separator";
+import { Switch } from "@shared/ui/switch";
 
 export default function ConnectionSettings() {
   // Controlled state for switches

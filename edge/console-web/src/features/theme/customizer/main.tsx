@@ -1,6 +1,6 @@
 // Main theme customizer exports
-export { ThemeCustomizer, ThemeCustomizerTrigger } from "./index.tsx";
+export { ThemeCustomizer, ThemeCustomizerTrigger } from "./index";
 
 // Individual component exports for flexibility
-export { ThemeTab } from "./theme-tab.tsx";
-export { LayoutTab } from "./layout-tab.tsx";
+export { ThemeTab } from "./theme-tab";
+export { LayoutTab } from "./layout-tab";

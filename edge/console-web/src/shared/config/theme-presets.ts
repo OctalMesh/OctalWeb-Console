@@ -1,4 +1,4 @@
-import type { ThemePreset } from "@/shared/types/theme.ts";
+import type { ThemePreset } from "@shared/types/theme";
 
 export const shadcnThemePresets: Record<string, ThemePreset> = {
   default: {

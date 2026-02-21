@@ -1,11 +1,12 @@
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { MetricsOverview } from "./components/metrics-overview.tsx";
-import { SalesChart } from "./components/sales-chart.tsx";
-import { RecentTransactions } from "./components/recent-transactions.tsx";
-import { TopProducts } from "./components/top-products.tsx";
-import { CustomerInsights } from "./components/customer-insights.tsx";
-import { QuickActions } from "./components/quick-actions.tsx";
-import { RevenueBreakdown } from "./components/revenue-breakdown.tsx";
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { CustomerInsights } from "./components/customer-insights";
+import { MetricsOverview } from "./components/metrics-overview";
+import { QuickActions } from "./components/quick-actions";
+import { RecentTransactions } from "./components/recent-transactions";
+import { RevenueBreakdown } from "./components/revenue-breakdown";
+import { SalesChart } from "./components/sales-chart";
+import { TopProducts } from "./components/top-products";
 
 export default function Dashboard2() {
   return (

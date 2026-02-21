@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { BaseLayout } from "@/app/layouts/base-layout.tsx";
-import { StatCards } from "./components/stat-cards.tsx";
-import { DataTable } from "./components/data-table.tsx";
 
+import { BaseLayout } from "@app/layouts/base-layout";
+
+import { DataTable } from "./components/data-table";
+import { StatCards } from "./components/stat-cards";
 import initialUsersData from "./data.json";
 
 interface User {

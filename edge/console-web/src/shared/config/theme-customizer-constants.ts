@@ -4,7 +4,7 @@ import type {
   SidebarCollapsibleOption,
   SidebarSideOption,
   SidebarVariant,
-} from "@/shared/types/theme-customizer.ts";
+} from "@shared/types/theme-customizer";
 
 // Radius options
 export const radiusOptions: RadiusOption[] = [

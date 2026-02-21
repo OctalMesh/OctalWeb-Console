@@ -1,7 +1,7 @@
 import { TrendingDown, TrendingUp } from "lucide-react";
 
-import { Badge } from "@/shared/ui/badge.tsx";
-import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/ui/card.tsx";
+import { Badge } from "@shared/ui/badge";
+import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@shared/ui/card";
 
 export function SectionCards() {
   return (

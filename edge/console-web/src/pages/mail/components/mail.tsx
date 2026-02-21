@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+
 import {
   AlertCircle,
   Archive,
@@ -15,19 +16,20 @@ import {
   Users2,
 } from "lucide-react";
 
-import { cn } from "@/shared/lib/utils.ts";
-import { Input } from "@/shared/ui/input.tsx";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/shared/ui/resizable.tsx";
-import { Separator } from "@/shared/ui/separator.tsx";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs.tsx";
-import { TooltipProvider } from "@/shared/ui/tooltip.tsx";
-import { AccountSwitcher } from "@/pages/mail/components/account-switcher.tsx";
-import { MailDisplay } from "@/pages/mail/components/mail-display.tsx";
-import { MailList } from "@/pages/mail/components/mail-list.tsx";
-import { Nav } from "@/pages/mail/components/nav.tsx";
-import { type Mail } from "@/pages/mail/data.tsx";
-import { useMail } from "@/pages/mail/use-mail.ts";
-import { Button } from "@/shared/ui/button.tsx";
+import { AccountSwitcher } from "@pages/mail/components/account-switcher";
+import { MailDisplay } from "@pages/mail/components/mail-display";
+import { MailList } from "@pages/mail/components/mail-list";
+import { Nav } from "@pages/mail/components/nav";
+import { type Mail } from "@pages/mail/data";
+import { useMail } from "@pages/mail/use-mail";
+
+import { cn } from "@shared/lib/utils";
+import { Button } from "@shared/ui/button";
+import { Input } from "@shared/ui/input";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@shared/ui/resizable";
+import { Separator } from "@shared/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@shared/ui/tabs";
+import { TooltipProvider } from "@shared/ui/tooltip";
 
 interface MailProps {
   accounts: {
