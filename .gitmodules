@@ -5,3 +5,11 @@
 [submodule "services/auth"]
     path = services/auth
     url = git@github.com:OctalMesh/owc-svc-auth.git
+
+[submodule "app/web"]
+    path = app/web
+    url = git@github.com:OctalMesh/owc-app-web.git
+
+[submodule "app/desktop"]
+    path = app/desktop
+    url = git@github.com:OctalMesh/owc-app-desktop.git
