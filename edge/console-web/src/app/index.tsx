@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import { AppProvider } from "@app/providers/app-provider";
-import { AppRoutes } from "@app/router/routes";
+import { AppProvider } from "@app/providers";
+import { AppRouter } from "@app/router";
 
 import { initGTM } from "@shared/lib/analytics";
 
@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <AppProvider>
-      <AppRoutes />
+      <AppRouter />
     </AppProvider>
   );
 }

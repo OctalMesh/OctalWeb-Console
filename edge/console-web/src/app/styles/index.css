@@ -66,3 +66,20 @@ html {
 .animate-logo-scroll:hover {
   animation-play-state: paused;
 }
+
+body {
+  pointer-events: auto !important;
+  overflow: auto !important;
+}
+
+body:has([data-radix-popper-content-wrapper]),
+body:has([role="dialog"]),
+body:has([data-state="open"]) {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+[data-slot="sidebar"],
+[data-slot="sidebar-inset"] {
+  pointer-events: auto !important;
+}

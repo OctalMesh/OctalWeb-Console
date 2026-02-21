@@ -87,6 +87,10 @@ node_modules/
 # Next.js
 .next/
 
+# TanStack
+.tanstack/
+routeTree.gen.ts
+
 # Build
 build/
 dist/

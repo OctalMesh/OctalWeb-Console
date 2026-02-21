@@ -2,24 +2,11 @@
 
 import * as React from "react";
 
+import { useNavigate } from "@tanstack/react-router";
 import { Command as CommandPrimitive } from "cmdk";
-import {
-  Bell,
-  Calendar,
-  CheckSquare,
-  HelpCircle,
-  LayoutDashboard,
-  LayoutPanelLeft,
-  Link2,
-  type LucideIcon,
-  Mail,
-  MessageCircle,
-  Palette,
-  Search,
-  Settings,
-  User,
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
+
+import { FLAT_NAVIGATION_ITEMS, type NavItem } from "@widgets/navigation/items";
 
 import { cn } from "@shared/lib/utils";
 import { Dialog, DialogContent, DialogTitle } from "@shared/ui/dialog";
@@ -108,13 +95,6 @@ const CommandItem = React.forwardRef<
 ));
 CommandItem.displayName = CommandPrimitive.Item.displayName;
 
-interface SearchItem {
-  title: string;
-  url: string;
-  group: string;
-  icon?: LucideIcon;
-}
-
 interface CommandSearchProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -123,30 +103,7 @@ interface CommandSearchProps {
 export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
   const navigate = useNavigate();
   const commandRef = React.useRef<HTMLDivElement>(null);
-
-  const searchItems: SearchItem[] = [
-    // Dashboards
-    { title: "Dashboard 1", url: "/dashboard", group: "Dashboards", icon: LayoutDashboard },
-    { title: "Dashboard 2", url: "/dashboard-2", group: "Dashboards", icon: LayoutPanelLeft },
-
-    // Apps
-    { title: "Mail", url: "/mail", group: "Apps", icon: Mail },
-    { title: "Tasks", url: "/tasks", group: "Apps", icon: CheckSquare },
-    { title: "Chat", url: "/chat", group: "Apps", icon: MessageCircle },
-    { title: "Calendar", url: "/calendar", group: "Apps", icon: Calendar },
-
-    // Settings
-    { title: "User Settings", url: "/settings/user", group: "Settings", icon: User },
-    { title: "Account Settings", url: "/settings/account", group: "Settings", icon: Settings },
-    { title: "Appearance", url: "/settings/appearance", group: "Settings", icon: Palette },
-    { title: "Notifications", url: "/settings/notifications", group: "Settings", icon: Bell },
-    { title: "Connections", url: "/settings/connections", group: "Settings", icon: Link2 },
-
-    // Pages
-    { title: "FAQs", url: "/faqs", group: "Pages", icon: HelpCircle },
-  ];
-
-  const groupedItems = searchItems.reduce(
+  const groupedItems = FLAT_NAVIGATION_ITEMS.reduce(
     (acc, item) => {
       if (!acc[item.group]) {
         acc[item.group] = [];
@@ -154,11 +111,11 @@ export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
       acc[item.group].push(item);
       return acc;
     },
-    {} as Record<string, SearchItem[]>,
+    {} as Record<string, NavItem[]>,
   );
 
-  const handleSelect = (url: string) => {
-    navigate(url);
+  const handleSelect = (to: string) => {
+    navigate({ to: to as any });
     onOpenChange(false);
     // Bounce effect like Vercel
     if (commandRef.current) {
@@ -184,7 +141,7 @@ export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
                 {items.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <CommandItem key={item.url} value={item.title} onSelect={() => handleSelect(item.url)}>
+                    <CommandItem key={item.to} value={item.title} onSelect={() => handleSelect(item.to)}>
                       {Icon && <Icon className="mr-2 h-4 w-4" />}
                       {item.title}
                     </CommandItem>

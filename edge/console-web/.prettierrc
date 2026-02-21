@@ -11,8 +11,8 @@
   "endOfLine": "lf",
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
-    "^(react/(.*)$)|^(react$)",
-    "^(vite/(.*)$)|^(vite$)",
+    "^react",
+    "^vite",
     "<THIRD_PARTY_MODULES>",
     "^@app/(.*)$",
     "^@pages/(.*)$",
@@ -20,6 +20,7 @@
     "^@features/(.*)$",
     "^@entities/(.*)$",
     "^@shared/(.*)$",
+    "^@/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

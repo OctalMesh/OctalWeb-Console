@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { SidebarContext, type SidebarContextValue } from "@widgets/sidebar/sidebar-context";
+import { SidebarContext, type SidebarContextValue } from "@widgets/navigation/sidebar-context";
 
 export function useSidebarConfig(): SidebarContextValue {
   const context = React.useContext(SidebarContext);

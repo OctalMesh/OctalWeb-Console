@@ -1,6 +1,6 @@
 "use client";
 
-import { useSidebarConfig } from "@widgets/sidebar/sidebar-context";
+import { useSidebarConfig } from "@widgets/navigation/sidebar-context";
 
 import {
   sidebarCollapsibleOptions,

@@ -1,7 +1,7 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import { BellDot, CircleUser, EllipsisVertical, LogOut } from "lucide-react";
-import { Link } from "react-router-dom";
 
 import {
   DropdownMenu,
@@ -66,13 +66,13 @@ export function NavUser({
               <DropdownMenuItem asChild className="cursor-pointer">
                 <Link to="/settings/account">
                   <CircleUser />
-                  Account
+                  <span>Account</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="cursor-pointer">
                 <Link to="/settings/notifications">
                   <BellDot />
-                  Notifications
+                  <span>Notifications</span>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -80,7 +80,7 @@ export function NavUser({
             <DropdownMenuItem asChild className="cursor-pointer">
               <Link to="/sign-in">
                 <LogOut />
-                Log out
+                <span>Log out</span>
               </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>

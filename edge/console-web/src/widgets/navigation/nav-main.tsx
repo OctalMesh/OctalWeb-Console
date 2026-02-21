@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
+
+import type { NavItem } from "@widgets/navigation/items";
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@shared/ui/collapsible";
 import {
@@ -15,29 +17,11 @@ import {
   SidebarMenuSubItem,
 } from "@shared/ui/sidebar";
 
-export function NavMain({
-  label,
-  items,
-}: {
-  label: string;
-  items: {
-    title: string;
-    url: string;
-    icon?: LucideIcon;
-    isActive?: boolean;
-    items?: {
-      title: string;
-      url: string;
-      isActive?: boolean;
-    }[];
-  }[];
-}) {
-  const location = useLocation();
+export function NavMain({ label, items }: { label: string; items: NavItem[] }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  // Check if any subitem is active to determine if parent should be open
-  const shouldBeOpen = (item: (typeof items)[0]) => {
-    if (item.isActive) return true;
-    return item.items?.some((subItem) => location.pathname === subItem.url) || false;
+  const isParentActive = (item: NavItem) => {
+    return item.items?.some((sub) => pathname.startsWith(sub.to)) || pathname === item.to;
   };
 
   return (
@@ -45,7 +29,7 @@ export function NavMain({
       <SidebarGroupLabel>{label}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <Collapsible key={item.title} asChild defaultOpen={shouldBeOpen(item)} className="group/collapsible">
+          <Collapsible key={item.title} asChild defaultOpen={isParentActive(item)} className="group/collapsible">
             <SidebarMenuItem>
               {item.items?.length ? (
                 <>
@@ -58,22 +42,14 @@ export function NavMain({
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {item.items?.map((subItem) => (
+                      {item.items.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton
                             asChild
                             className="cursor-pointer"
-                            isActive={location.pathname === subItem.url}
+                            isActive={location.pathname === subItem.to}
                           >
-                            <Link
-                              to={subItem.url}
-                              target={item.title === "Auth Pages" || item.title === "Errors" ? "_blank" : undefined}
-                              rel={
-                                item.title === "Auth Pages" || item.title === "Errors"
-                                  ? "noopener noreferrer"
-                                  : undefined
-                              }
-                            >
+                            <Link to={subItem.to}>
                               <span>{subItem.title}</span>
                             </Link>
                           </SidebarMenuSubButton>
@@ -87,9 +63,9 @@ export function NavMain({
                   asChild
                   tooltip={item.title}
                   className="cursor-pointer"
-                  isActive={location.pathname === item.url}
+                  isActive={location.pathname === item.to}
                 >
-                  <Link to={item.url}>
+                  <Link to={item.to}>
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
                   </Link>

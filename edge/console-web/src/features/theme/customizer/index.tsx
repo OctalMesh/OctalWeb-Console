@@ -4,7 +4,7 @@ import React from "react";
 
 import { Layout, Palette, RotateCcw, Settings, X } from "lucide-react";
 
-import { useSidebarConfig } from "@widgets/sidebar/sidebar-context";
+import { useSidebarConfig } from "@widgets/navigation/sidebar-context";
 
 import { useThemeManager } from "@shared/hooks/use-theme-manager";
 import { cn } from "@shared/lib/utils";
