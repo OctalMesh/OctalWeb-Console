@@ -1,7 +1,7 @@
 services:
   console-web:
     build:
-      context: ../../../../edge/console-web
+      context: ../../../../app/web
       dockerfile: Dockerfile
     container_name: octal-console
     ports:

@@ -15,7 +15,7 @@ function RootComponent() {
       <Suspense fallback={<LoadingSpinner />}>
         <Outlet />
       </Suspense>
-      <TanStackRouterDevtools position="bottom-right" />
+      <TanStackRouterDevtools position="bottom-right" initialIsOpen={false} />
     </>
   );
 }

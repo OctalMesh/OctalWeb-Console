@@ -1,0 +1,6 @@
+[submodule "services/api-gateway"]
+	path = services/api-gateway
+	url = git@github.com:OctalMesh/owc-svc-gw.git
+[submodule "services/auth"]
+	path = services/auth
+	url = git@github.com:OctalMesh/owc-svc-auth.git
