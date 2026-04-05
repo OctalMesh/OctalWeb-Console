@@ -1,4 +1,15 @@
 # ============================================================================ #
+#                            Build / Dist / Output                             #
+# ============================================================================ #
+
+build/
+builds/
+dist/
+dev-dist/
+out/
+logs/
+
+# ============================================================================ #
 #                              Environment / Misc                              #
 # ============================================================================ #
 
@@ -19,7 +30,6 @@
 
 # IntelliJ
 .idea/
-out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
@@ -84,42 +94,3 @@ ehthumbs_vista.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 *.lnk
-
-# ============================================================================ #
-#                            Node / JavaScript / Yarn                          #
-# ============================================================================ #
-
-# Node
-node_modules/
-.pnp/
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# Next.js
-.next/
-
-# TanStack
-.tanstack/
-routeTree.gen.ts
-
-# Build
-build/
-dist/
-dev-dist/
-
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# Testing
-coverage/
-
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
