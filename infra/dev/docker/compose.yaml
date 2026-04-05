@@ -1,0 +1,39 @@
+name: "octalweb-console-dev"
+
+# Common defaults for services.
+# Reused via "<<: *defaults" to avoid duplication.
+x-defaults: &defaults
+  restart: "no"
+  init: true
+  stop_grace_period: "5s"
+  env_file:
+    - "../.env"
+  networks:
+    - "octalnet-console-dev"
+
+services:
+  # ========================================================================== #
+  #                                Applications                                #
+  # ========================================================================== #
+
+  owc-app-web:
+    <<: *defaults
+    build:
+      context: "../../../apps/web"
+      dockerfile: "infra/dev/docker/Dockerfile"
+
+  # ========================================================================== #
+  #                                 Services                                   #
+  # ========================================================================== #
+
+  owc-svc-gw:
+    <<: *defaults
+    build:
+      context: "../../../services/api-gateway"
+      dockerfile: "infra/dev/docker/Dockerfile"
+
+# Dedicated isolated networks
+networks:
+  octalnet-console-dev:
+    driver: "bridge"
+    name: "octalnet-console-dev"

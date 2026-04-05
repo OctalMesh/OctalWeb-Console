@@ -1,0 +1,44 @@
+role:   squadron
+id:     console
+binary: owc
+
+reactor:
+  provider: tilt
+  network:  octalnet-console
+  context:  ./
+
+  blueprints:
+    - env:  dev
+      path: ./infra/dev/tilt/Tiltfile
+
+    - env:  staging
+      path: ./infra/staging/tilt/Tiltfile
+
+manifest:
+  - id:   app-web
+    path: ./apps/web
+    tags: [ "app" ]
+
+  - id:   svc-gw
+    path: ./services/api-gateway
+    tags: [ "service" ]
+
+  #- id:   svc-auth
+  #  path: ./services/auth
+  #  tags: [ "service" ]
+
+  #- id:   svc-audit
+  #  path: ./services/audit
+  #  tags: [ "service" ]
+
+  #- id:   svc-cms
+  #  path: ./services/cms-admin
+  #  tags: [ "service" ]
+
+  #- id:   svc-notification
+  #  path: ./services/notification
+  #  tags: [ "service" ]
+
+  #- id:   svc-staff
+  #  path: ./services/staff
+  #  tags: [ "service" ]

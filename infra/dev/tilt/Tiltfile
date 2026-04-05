@@ -1,0 +1,10 @@
+version_settings(constraint='>=0.33.0')
+
+docker_compose(
+	[
+	    '../docker/compose.yaml',
+		'../../../apps/web/infra/dev/docker/compose.yaml',
+		'../../../services/api-gateway/infra/dev/docker/compose.yaml',
+	],
+	project_name='octalweb-console-dev',
+)
